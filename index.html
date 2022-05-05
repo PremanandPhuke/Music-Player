@@ -31,7 +31,7 @@
             top: 0;
             width: 20%;
             height: 100vh;
-
+            transition: all 0.5s ease-in-out;
         }
 
         aside img {
@@ -67,6 +67,35 @@
             transition: 0.2s;
             border: 0.5px solid blue;
         }
+
+
+        aside .btn2 {
+            position: fixed;
+            top: 0%;
+            left: 10px;
+            font-size: 2rem;
+            display: none;
+        }
+
+        aside .btn2 p {
+            color: rgb(4, 247, 45);
+            cursor: pointer;
+        }
+
+        @media (max-width:800px) {
+            aside {
+                left: -200px;
+
+
+            }
+
+            aside .btn2 {
+                display: inline;
+            }
+
+
+
+        }
     </style>
 </head>
 
@@ -76,10 +105,11 @@
 
         <div class="row">
 
-            <aside>
+            <aside id="aside">
                 <div class="row justify-content-center">
 
-                    <img src="img/profile.png" alt="">
+                    <img src="https://raw.githubusercontent.com/PremanandPhuke/Music-Player/master/img/profile.png"
+                        alt="">
                 </div>
 
                 <br>
@@ -95,10 +125,22 @@
                         <h>Sign In</h>
                     </button>
                 </div>
+                <div class="btn2">
+                    <p onclick="openAside()">X</p>
+                </div>
             </aside>
 
         </div>
     </div>
+    <script>
+        function openAside(){
+            let x = document.getElementById("aside");
+
+             x.style.left="0px"?"-200px":"0px";
+             
+            // x.style.left="0px";
+        }
+    </script>
 </body>
 
 </html>
