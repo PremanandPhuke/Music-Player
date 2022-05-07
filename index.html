@@ -29,7 +29,7 @@
             position: relative;
             left: 0;
             top: 0;
-            width: 20%;
+            width: 20vw;
             height: 100vh;
             transition: all 0.5s ease-in-out;
         }
@@ -70,31 +70,70 @@
 
 
         aside .btn2 {
-            position: fixed;
-            top: 0%;
-            left: 10px;
+            /* position: fixed; */
+            top: 5px;
+            left: 5px;
             font-size: 2rem;
             display: none;
         }
 
         aside .btn2 p {
-            color: rgb(4, 247, 45);
+            color: rgb(255, 0, 0);
+            background-color: gray;
+            border-radius: 50%;
+            display: flex;
+            width: 40px;
+            height: 40px;
             cursor: pointer;
+            position: relative;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-menu {
+            display: none;
         }
 
         @media (max-width:800px) {
             aside {
-                left: -200px;
-
-
+                left: -350px;
+                width: 30vw;
             }
 
             aside .btn2 {
                 display: inline;
             }
 
+            aside img {
+                height: 80px;
+                width: 80px;
+            }
 
+            .btn-menu {
 
+                background-color: gray;
+                border-radius: 5px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-evenly;
+                width: 40px;
+                height: 30px;
+                position: fixed;
+                left: 5px;
+                top: 5px;
+                cursor: pointer;
+            }
+
+            .btn-menu .line {
+                content: " ";
+                background: rgb(255, 0, 0);
+                /* position: absolute; */
+                height: 4px;
+                width: 25px;
+                padding: 0px 10px;
+            }
         }
     </style>
 </head>
@@ -106,8 +145,10 @@
         <div class="row">
 
             <aside id="aside">
-                <div class="row justify-content-center">
-
+                <div class="row d-flex flex-column align-items-center justify-content-center">
+                    <div class="btn2 align-self-start mx-4 mt-2">
+                        <p onclick="openAside()">X</p>
+                    </div>
                     <img src="https://raw.githubusercontent.com/PremanandPhuke/Music-Player/master/img/profile.png"
                         alt="">
                 </div>
@@ -125,20 +166,34 @@
                         <h>Sign In</h>
                     </button>
                 </div>
-                <div class="btn2">
-                    <p onclick="openAside()">X</p>
+                <div class="btn-menu" id="btn-menu" onclick="menuClick()">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
                 </div>
             </aside>
 
         </div>
     </div>
     <script>
-        function openAside(){
-            let x = document.getElementById("aside");
+        const xbtn = document.getElementById("aside");
+            const menubtn = document.getElementById("btn-menu");
+        function openAside() {
+            
 
-             x.style.left="0px"?"-200px":"0px";
-             
-            // x.style.left="0px";
+            if (xbtn.style.left == "-350px") {
+                xbtn.style.left = "0px";
+                menubtn.style.display = "none";
+            }
+            else {
+                menubtn.style.display = "flex";
+                xbtn.style.left = "-350px"
+            }
+
+        }
+        function menuClick() {
+            xbtn.style.left = "0px";
+            menubtn.style.display="none"
         }
     </script>
 </body>
