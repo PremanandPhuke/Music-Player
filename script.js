@@ -192,19 +192,23 @@ document.getElementById('next').addEventListener('click', () => {
     audioElement.play();
     masterplay.classList.remove("fa-play-circle")
     masterplay.classList.add("fa-pause-circle")
+    mainimg.src = `image/${songindex+1}.png`;
+
 })
 
 document.getElementById('previous').addEventListener('click', () => {
-    if (songindex >= 9) {
-        songindex = 0
+    if (songindex <=0) {
+        songindex = 9
     } else {
-        songindex += 1;
+        songindex -= 1;
     }
     audioElement.src = `songs/${songindex+1}.mp3`;
     audioElement.currentTime = 0;
     audioElement.play();
     masterplay.classList.remove("fa-play-circle")
     masterplay.classList.add("fa-pause-circle")
+    mainimg.src = `image/${songindex+1}.png`;
+
 })
 
 
