@@ -7,6 +7,7 @@ let musicOn = false;
 let songitem = Array.from(document.getElementsByClassName('songitem'));
 let imgEffect = document.getElementById("mainimg");
 let box = document.getElementsByClassName('box')
+let mainsong= document.getElementById('mainsong');
 
 let songs = [{
         SongName: "Agar Tum Sath Ho...",
@@ -15,51 +16,51 @@ let songs = [{
         background: " linear-gradient(white, rgb(214, 123, 3))"
     },
     {
-        SongName: "Agar Tum Sath Ho...",
+        SongName: "Ye Raate Ye Mousam...",
         filepath: "songs/2.mp3",
         coverpath: "image/2.png",
         background: " linear-gradient(white, black)"
 
     },
     {
-        SongName: "Agar Tum Sath Ho...",
+        SongName: "Lagja Gale...",
         filepath: "songs/3.mp3",
         coverpath: "image/3.png",
     },
     {
-        SongName: "Agar Tum Sath Ho...",
+        SongName: "Ashka Na Ho Naina...",
         filepath: "songs/4.mp3",
         coverpath: "image/4.png",
     },
     {
-        SongName: "Agar Tum Sath Ho...",
+        SongName: "Shayad...",
         filepath: "songs/5.mp3",
-        coverpath: "image/1.png",
+        coverpath: "image/5.png",
     },
     {
-        SongName: "Agar Tum Sath Ho...",
+        SongName: "Nacho Nacho...",
         filepath: "songs/6.mp3",
-        coverpath: "image/1.png",
+        coverpath: "image/6.png",
     },
     {
-        SongName: "Agar Tum Sath Ho...",
+        SongName: "Zalima...",
         filepath: "songs/7.mp3",
-        coverpath: "image/1.png",
+        coverpath: "image/7.png",
     },
     {
-        SongName: "Agar Tum Sath Ho...",
+        SongName: "Tera Yaar Hu Main...",
         filepath: "songs/8.mp3",
-        coverpath: "image/1.png",
+        coverpath: "image/8.png",
     },
     {
-        SongName: "Agar Tum Sath Ho...",
+        SongName: "Hain Apna Dil To Awara...",
         filepath: "songs/9.mp3",
-        coverpath: "image/1.png",
+        coverpath: "image/9.png",
     },
     {
-        SongName: "Agar Tum Sath Ho...",
+        SongName: "Mere Liye Tum Kafi Ho...",
         filepath: "songs/10.mp3",
-        coverpath: "image/1.png",
+        coverpath: "image/10.png",
     },
 
 ]
@@ -164,6 +165,8 @@ Array.from(document.getElementsByClassName("songitemplay")).forEach((element) =>
         masterplay.classList.remove("fa-play-circle")
         masterplay.classList.add("fa-pause-circle")
         mainimg.src = `image/${songindex+1}.png`;
+        mainsong.innerHTML= songs[songindex].SongName
+
 
         if (audioElement.paused || audioElement.currentTime <= 0) {
             audioElement.play();
@@ -193,7 +196,21 @@ document.getElementById('next').addEventListener('click', () => {
     masterplay.classList.remove("fa-play-circle")
     masterplay.classList.add("fa-pause-circle")
     mainimg.src = `image/${songindex+1}.png`;
+    mainsong.innerHTML= songs[songindex].SongName
 
+    if (audioElement.paused || audioElement.currentTime <= 0) {
+        audioElement.play();
+        masterplay.classList.remove('fa-play-circle')
+        masterplay.classList.add('fa-pause-circle')
+        musicOn = true;
+        rotateImg(musicOn);
+    } else {
+        audioElement.pause();
+        masterplay.classList.add('fa-play-circle')
+        masterplay.classList.remove('fa-pause-circle')
+        musicOn = false;
+        rotateImg(musicOn);
+    }
 })
 
 document.getElementById('previous').addEventListener('click', () => {
@@ -208,7 +225,24 @@ document.getElementById('previous').addEventListener('click', () => {
     masterplay.classList.remove("fa-play-circle")
     masterplay.classList.add("fa-pause-circle")
     mainimg.src = `image/${songindex+1}.png`;
+    mainsong.innerHTML= songs[songindex].SongName
+
+    if (audioElement.paused || audioElement.currentTime <= 0) {
+        audioElement.play();
+        masterplay.classList.remove('fa-play-circle')
+        masterplay.classList.add('fa-pause-circle')
+        musicOn = true;
+        rotateImg(musicOn);
+    } else {
+        audioElement.pause();
+        masterplay.classList.add('fa-play-circle')
+        masterplay.classList.remove('fa-pause-circle')
+        musicOn = false;
+        rotateImg(musicOn);
+    }
 
 })
+
+
 
 
