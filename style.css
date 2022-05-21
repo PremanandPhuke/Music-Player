@@ -17,10 +17,10 @@ body {
 }
 
 aside {
-    width: 25%;
+    width: 35%;
     background-color: black;
     top: 0;
-    left: 0%;
+    left: -150%;
     display: flex;
     height: 100%;
     color: white;
@@ -29,7 +29,9 @@ aside {
     flex-direction: column;
     flex-wrap: nowrap;
     align-content: center;
+    align-items: center;
     justify-content: flex-start;
+    z-index: 100;
 }
 
 .icon {
@@ -43,12 +45,12 @@ aside {
     z-index: 100;
 }
 .icon #menu-btn{
-    font-size: 2rem;
+    font-size: 2.5rem;
     position: fixed;
     top: 10px;
     left: 10px;
     z-index: 100;
-    display: none;
+    /* display: none; */
 }
 
 .options {
@@ -56,6 +58,7 @@ aside {
     display: block;
     height: 60vh;
     overflow-y: scroll;
+    width: 100%;
 }
 
 .options::-webkit-scrollbar {
@@ -97,10 +100,12 @@ a {
     border-radius: 6px;
     flex-wrap: nowrap;
     justify-content: space-between;
+    overflow: hidden;
 }
 .songitem img {
     height: 50px;
     width: 50px;
+position: relative;
 }
 .songitem .name {
     font-size: 0.9rem;
@@ -140,29 +145,39 @@ a {
 
 .container .box .songname h3 {
     padding: 5px 0;
-}
-
-.container .box .animation input {
-    width: 100%;
-    padding: 10px 0;
-    cursor: pointer;
     color: black;
 }
 
+.container .box .animation input{
+    width: 100%;
+    padding: 10px 0;
+    cursor: pointer;
+    color: rgb(255, 4, 4);
+    caret-color: coral;
+}
+
 .container .box {
-    padding: 5% 5%;
-    background-image: linear-gradient(white, rgb(214, 123, 3));
+    padding: 2%;
+    background-image: linear-gradient(#fff,rgb(243, 156, 56));
     color: wheat;
     border-radius: 12px;
-    width: 350px;
-    height: 400px;
+    width: 400px;
+    height: 500px;
+    transition: all 0.5s ease-in-out;
+    z-index: 20;
+    display: flex;
+    position: relative;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
 }
 
 .container .box .songimg .mainimg {
-    height: 200px;
-    width: 200px;
+    height: 300px;
+    width: 300px;
     border-radius: 50%;
-    padding: 20px 0;
+    /* padding: 20px 0; */
     animation: rotate 5s linear paused;
     animation-iteration-count: infinite;
 
@@ -175,6 +190,9 @@ a {
     padding: 20px 0;
 }
 
+.container .box .animation .myprogressbar{
+    color: rgb(255,38,0);
+}
 .playpause {
     display: flex;
     flex-direction: row;
@@ -203,15 +221,14 @@ a {
 
 
 
-@media (max-width:800px) {
+@media (max-width:900px) {
     aside {
-        z-index: 10;
-        width: 60%;
+        width: 50%;
         left: -150%;
         position: absolute;
     }
     .icon #menu-btn{
-        display: block;
+        display: initial;
     }
 
     .container {
@@ -226,31 +243,70 @@ a {
     }
 
     .container .box {
-        width: 60%;
+        /* width: 45%; */
         height: 60vh;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: flex-end;
-        border-radius: 30px;
-        align-content: center;
-        align-items: stretch;
     }
 
     .container .box .songimg .mainimg {
-        margin: 10% 0px 15%;
+        margin: 3%;
         position: relative;
-        height: 300px;
-        width: 300px;
+        height: 280px;
+        width: 280px;
         animation-play-state: paused;
     }
 
-    .container .box .songimg .gif {
+    /* .container .box .songimg .gif {
         height: 60px;
         width: 400px;
-        /* border-radius: 50%; */
+         border-radius: 50%; 
         padding: 0px;
-    }
+    } */
 
+}
+
+@media (max-width:650px) {
+    
+aside{
+    width: 60%;
+}
+.container .box .songimg .mainimg {
+    height: 260px;
+    width: 260px;
+}
+}
+@media (max-width:550px){
+    aside{
+        width: 70%;
+    }
+    .container .box .songimg .mainimg {
+        height: 240px;
+        width: 240px;
+    }
+}
+@media (max-width:450px){
+    aside{
+        width: 100%;
+    }
+    .container .box {
+        width: 80%;
+        height:60vh ;
+    }
+    .container .box .songimg .mainimg {
+        height: 220px;
+        width: 220px;
+    }
+}
+@media (max-width:300px){
+    aside{
+        width: 100%;
+    }
+    .container .box {
+        width: 85%;
+        height:60vh ;
+
+    }
+    .container .box .songimg .mainimg {
+        height: 200px;
+        width: 200px;
+    }
 }

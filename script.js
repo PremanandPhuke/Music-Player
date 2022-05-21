@@ -74,17 +74,24 @@ songitem.forEach((element, i) => {
 
 const menuBtnClick = () => {
     const menuBtn = document.getElementById("menu-btn");
-const aside = document.getElementById("aside")
-
+    const aside = document.getElementById("aside");
+    const box = document.getElementById("box");
+    console.log(document.body.offsetWidth)
     if (menuBtn.classList.contains("fa-bars-staggered")) {
         menuBtn.classList.add("fa-rectangle-xmark");
         menuBtn.classList.remove("fa-bars-staggered")
-        aside.style.left="0px"
+        aside.style.left = "0px"
+        if (document.body.offsetWidth > 900) {
+            box.style.transform = "translateX(40%)";
+        }
     }
     else {
         menuBtn.classList.remove("fa-rectangle-xmark");
         menuBtn.classList.add("fa-bars-staggered");
-        aside.style.left="-150%"
+        aside.style.left = "-150%"
+        if (document.body.offsetWidth > 900) {
+            box.style.transform = "translateX(0%)";
+        }
     }
 }
 masterplay.addEventListener('click', () => {
