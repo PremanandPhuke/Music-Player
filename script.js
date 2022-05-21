@@ -84,7 +84,7 @@ const aside = document.getElementById("aside")
     else {
         menuBtn.classList.remove("fa-rectangle-xmark");
         menuBtn.classList.add("fa-bars-staggered");
-        aside.style.left="-400px"
+        aside.style.left="-150%"
     }
 }
 masterplay.addEventListener('click', () => {
