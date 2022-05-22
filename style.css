@@ -158,7 +158,7 @@ position: relative;
 
 .container .box {
     padding: 2%;
-    background-image: linear-gradient(#fff,rgb(243, 156, 56));
+    background: linear-gradient(#fff,rgb(243, 156, 56));
     color: wheat;
     border-radius: 12px;
     width: 400px;
@@ -244,7 +244,7 @@ position: relative;
 
     .container .box {
         /* width: 45%; */
-        height: 60vh;
+        height: 80vh;
     }
 
     .container .box .songimg .mainimg {
@@ -281,6 +281,10 @@ aside{
     .container .box .songimg .mainimg {
         height: 240px;
         width: 240px;
+    }
+    .container .box {
+        width: 80%;
+        height:70vh ;
     }
 }
 @media (max-width:450px){

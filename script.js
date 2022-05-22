@@ -9,6 +9,15 @@ let imgEffect = document.getElementById("mainimg");
 let box = document.getElementsByClassName('box')
 let mainsong = document.getElementById('mainsong');
 
+
+// const res = fetch("songs.json")
+// .then((response)=>{return response.json()})
+// .then((data) => {
+//     const song = new Set[data];
+//     console.log(song)
+// })
+// console.log(data)
+// console.log(response)
 let songs = [{
     SongName: "Agar Tum Sath Ho...",
     filepath: "songs/1.mp3",
@@ -65,10 +74,27 @@ let songs = [{
 
 ]
 
-songitem.forEach((element, i) => {
-    element.getElementsByTagName("img")[0].src = songs[i].coverpath;
-    element.getElementsByClassName("name")[0].innerHTML = songs[i].SongName;
-});
+
+let list = "";
+songs.map((song, index) => {
+    list += ` <div class="songitem">
+    <img src=${song.coverpath} alt="agar tum sath ho">
+    <span class="name">${song.SongName}</span>
+    <span class="songlistplay">
+        <span class="songTime">5:40</span>
+        <i class="far fa-play-circle songitemplay" id=${index}></i>
+    </span>
+</div>`
+
+})
+
+const div = document.getElementById("options");
+div.innerHTML = list
+
+// songitem.forEach((element, i) => {
+//     element.getElementsByTagName("img")[0].src = songs[i].coverpath;
+//     element.getElementsByClassName("name")[0].innerHTML = songs[i].SongName;
+// });
 
 //  changing the menu btn ti cross
 
@@ -162,6 +188,7 @@ const makeAllplays = () => {
         element.classList.remove("fa-pause-circle")
         element.classList.add("fa-play-circle");
 
+
         if (audioElement.paused || audioElement.currentTime <= 0) {
             audioElement.play();
             masterplay.classList.remove('fa-play-circle')
@@ -179,32 +206,35 @@ const makeAllplays = () => {
 }
 Array.from(document.getElementsByClassName("songitemplay")).forEach((element) => {
     element.addEventListener('click', (e) => {
-        makeAllplays();
-        songindex = parseInt(e.target.id);
-        e.target.classList.remove("fa-play-circle");
-        e.target.classList.add("fa-pause-circle");
-        audioElement.src = `songs/${songindex + 1}.mp3`;
-        audioElement.currentTime = 0;
-        audioElement.play();
-        masterplay.classList.remove("fa-play-circle")
-        masterplay.classList.add("fa-pause-circle")
-        mainimg.src = `image/${songindex + 1}.png`;
-        mainsong.innerHTML = songs[songindex].SongName
+        // console.log(list)
 
-
-        if (audioElement.paused || audioElement.currentTime <= 0) {
+            makeAllplays();
+            songindex = parseInt(e.target.id);
+            e.target.classList.remove("fa-play-circle");
+            e.target.classList.add("fa-pause-circle");
+            audioElement.src = `songs/${songindex + 1}.mp3`;
+            audioElement.currentTime = 0;
             audioElement.play();
-            masterplay.classList.remove('fa-play-circle')
-            masterplay.classList.add('fa-pause-circle')
-            musicOn = true;
-            rotateImg(musicOn);
-        } else {
-            audioElement.pause();
-            masterplay.classList.add('fa-play-circle')
-            masterplay.classList.remove('fa-pause-circle')
-            musicOn = false;
-            rotateImg(musicOn);
-        }
+            masterplay.classList.remove("fa-play-circle")
+            masterplay.classList.add("fa-pause-circle")
+            mainimg.src = `image/${songindex + 1}.png`;
+            mainsong.innerHTML = songs[songindex].SongName
+            // box.style.background = `${}`
+
+            if (audioElement.paused || audioElement.currentTime <= 0) {
+                audioElement.play();
+                masterplay.classList.remove('fa-play-circle')
+                masterplay.classList.add('fa-pause-circle')
+                musicOn = true;
+                rotateImg(musicOn);
+            } else {
+                audioElement.pause();
+                masterplay.classList.add('fa-play-circle')
+                masterplay.classList.remove('fa-pause-circle')
+                musicOn = false;
+                rotateImg(musicOn);
+            }
+
     })
 })
 
@@ -250,6 +280,7 @@ document.getElementById('previous').addEventListener('click', () => {
     masterplay.classList.add("fa-pause-circle")
     mainimg.src = `image/${songindex + 1}.png`;
     mainsong.innerHTML = songs[songindex].SongName
+
 
     if (audioElement.paused || audioElement.currentTime <= 0) {
         audioElement.play();
