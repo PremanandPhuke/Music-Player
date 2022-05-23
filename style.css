@@ -3,9 +3,9 @@
     padding: 0;
 }
 
-.home {
-    display: flex;
-}
+/* .home {
+
+} */
 
 body {
     background: url(image/background1.png) no-repeat center center fixed;
@@ -17,14 +17,21 @@ body {
 }
 
 aside {
-    width: 25%;
-    position: relative;
+    width: 28%;
     background-color: black;
     top: 0;
-    left: 0;
-    height: 100vh;
+    left: -150%;
+    display: flex;
+    height: 100%;
     color: white;
-    transition: all 0.5s ease;
+    position: absolute;
+    transition: all 0.5s ease-in-out;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 100;
 }
 
 .icon {
@@ -32,16 +39,26 @@ aside {
     /* display: none; */
 }
 
-.icon i {
-    color: white;
-
+ .icon i {
+    color: rgb(255, 38, 0);
+    cursor: pointer;
+    z-index: 100;
+}
+.icon #menu-btn{
+    font-size: 2.5rem;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+    /* display: none; */
 }
 
 .options {
     margin: 30px 0;
     display: block;
-    height: 30vw;
+    height: 60vh;
     overflow-y: scroll;
+    width: 100%;
 }
 
 .options::-webkit-scrollbar {
@@ -54,7 +71,7 @@ aside {
 }
 
 .options::-webkit-scrollbar-thumb {
-    background-color: red;
+    background-color: rgb(255, 38, 0);
     border-radius: 10px;
 }
 
@@ -78,56 +95,95 @@ a {
     background-color: white;
     color: black;
     align-items: center;
-    margin: 20px 10px;
+    margin: 20px 20px;
+    flex-direction: row;
+    border-radius: 6px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    overflow: hidden;
 }
-.songitem .name{
-    width: 150px;
-}
-
-.songitem span {
-    padding: 0 8px;
-}
-
 .songitem img {
     height: 50px;
     width: 50px;
-
+position: relative;
+}
+.songitem .name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    height: 20px;
+    overflow: hidden;
+    width: 35%;
+    text-align: start;
 }
 
+.songitem .songlistplay {
+    padding: 0 10px;
+    gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: center;
+}
+.songitem .songlistplay .songTime{
+    font-weight: bolder;
+}
+.songitem .songlistplay .songitemplay{
+    margin: 0px 5%;
+    font-size: 2rem;
+    color: rgb(255, 38, 0);
+}
 .container {
     display: flex;
-    width: min-content;
+    width: 100vw;
+    height: 100vh;
     justify-content: center;
-    display: flex;
     align-items: center;
-    width: 70vw;
+    flex-wrap: nowrap;
+    flex-direction: column;
 }
-
+/* .container .box .songname{
+    border: 1px solid b;
+} */
 .container .box .songname h3 {
     padding: 5px 0;
+    color: black;
 }
-
-.container .box .animation input {
+.container .box .animation{
+    padding: 0 15px;
+    /* border: 1px solid blue; */
+}
+.container .box .animation input{
     width: 100%;
     padding: 10px 0;
     cursor: pointer;
-    color: black;
+    color: rgb(255, 4, 4);
+
+    caret-color: coral;
 }
 
 .container .box {
-    padding: 5% 5%;
-    background-image: linear-gradient(white, rgb(214, 123, 3));
+    padding: 2%;
+    background: linear-gradient(#fff,rgb(243, 156, 56));
     color: wheat;
     border-radius: 12px;
-    width: 350px;
-    height: 400px;
+    width: 400px;
+    height: 500px;
+    transition: all 0.5s ease-in-out;
+    z-index: 20;
+    display: flex;
+    position: relative;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
 }
 
 .container .box .songimg .mainimg {
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 250px;
     border-radius: 50%;
-    padding: 20px 0;
+    /* padding: 20px 0; */
     animation: rotate 5s linear paused;
     animation-iteration-count: infinite;
 
@@ -140,10 +196,14 @@ a {
     padding: 20px 0;
 }
 
+.container .box .animation .myprogressbar{
+    color: rgb(255,38,0);
+}
 .playpause {
     display: flex;
     flex-direction: row;
     height: 100px;
+    /* border: 1px solid black; */
     flex-wrap: nowrap;
     justify-content: space-evenly;
     align-items: center;
@@ -151,7 +211,7 @@ a {
 
 .playpause i {
     font-size: 2.5rem;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 38, 0);
     padding: 10px 20px;
     cursor: pointer;
 }
@@ -168,47 +228,96 @@ a {
 
 
 
-@media (max-width:800px) {
+@media (max-width:900px) {
     aside {
-        left: -350px;
-        width: 25%;
+        width: 50%;
+        left: -150%;
         position: absolute;
+    }
+    .icon #menu-btn{
+        display: initial;
     }
 
     .container {
         width: 100%;
-        height: 100%;
+        height: 100vh;
+        display: flex;
         position: relative;
-
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
     }
 
     .container .box {
-        width: 100%;
-        height: 95vh;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        flex-wrap: nowrap;
-        justify-content: flex-end;
-        border-radius: 0px;
-        align-content: center;
-        align-items: stretch;
-
+        /* width: 45%; */
+        height: 80vh;
     }
 
     .container .box .songimg .mainimg {
-        margin: 10% 0px 15%;
+        margin: 3%;
         position: relative;
-        height: 300px;
-        width: 300px;
+        height: 280px;
+        width: 280px;
         animation-play-state: paused;
     }
 
-    .container .box .songimg .gif {
+    /* .container .box .songimg .gif {
         height: 60px;
         width: 400px;
-        /* border-radius: 50%; */
+         border-radius: 50%; 
         padding: 0px;
-    }
+    } */
 
+}
+
+@media (max-width:650px) {
+    
+aside{
+    width: 60%;
+}
+.container .box .songimg .mainimg {
+    height: 260px;
+    width: 260px;
+}
+}
+@media (max-width:550px){
+    aside{
+        width: 70%;
+    }
+    .container .box .songimg .mainimg {
+        height: 240px;
+        width: 240px;
+    }
+    .container .box {
+        width: 80%;
+        height:70vh ;
+    }
+}
+@media (max-width:450px){
+    aside{
+        width: 100%;
+    }
+    .container .box {
+        width: 80%;
+        height:60vh ;
+    }
+    .container .box .songimg .mainimg {
+        height: 220px;
+        width: 220px;
+    }
+}
+@media (max-width:300px){
+    aside{
+        width: 100%;
+    }
+    .container .box {
+        width: 85%;
+        height:60vh ;
+
+    }
+    .container .box .songimg .mainimg {
+        height: 200px;
+        width: 200px;
+    }
 }
