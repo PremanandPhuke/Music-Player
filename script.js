@@ -70,16 +70,16 @@ songitem.forEach((element, i) => {
     element.getElementsByClassName("name")[0].innerHTML = songs[i].SongName;
 });
 
-//  changing the menu btn ti cross
+//  changing the menu btn to cross btn
 
 const menuBtnClick = () => {
     const menuBtn = document.getElementById("menu-btn");
     const aside = document.getElementById("aside");
     const box = document.getElementById("box");
     console.log(document.body.offsetWidth)
-    if (menuBtn.classList.contains("fa-bars-staggered")) {
+    if (menuBtn.classList.contains("fa-bars")) {
         menuBtn.classList.add("fa-rectangle-xmark");
-        menuBtn.classList.remove("fa-bars-staggered")
+        menuBtn.classList.remove("fa-bars")
         aside.style.left = "0px"
         if (document.body.offsetWidth > 900) {
             box.style.transform = "translateX(40%)";
@@ -87,7 +87,7 @@ const menuBtnClick = () => {
     }
     else {
         menuBtn.classList.remove("fa-rectangle-xmark");
-        menuBtn.classList.add("fa-bars-staggered");
+        menuBtn.classList.add("fa-bars");
         aside.style.left = "-150%"
         if (document.body.offsetWidth > 900) {
             box.style.transform = "translateX(0%)";
