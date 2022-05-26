@@ -74,7 +74,7 @@ let songs = [{
 
 ]
 
-
+// adding all songs in the playlist
 let list = "";
 songs.map((song, index) => {
     list += ` <div class="songitem">
@@ -99,27 +99,37 @@ div.innerHTML = list
 //  changing the menu btn to cross btn
 
 const menuBtnClick = () => {
-    const menuBtn = document.getElementById("menu-btn");
     const aside = document.getElementById("aside");
-    const box = document.getElementById("box");
-    console.log(document.body.offsetWidth)
-    if (menuBtn.classList.contains("fa-bars")) {
-        menuBtn.classList.add("fa-rectangle-xmark");
-        menuBtn.classList.remove("fa-bars")
-        aside.style.left = "0px"
-        if (document.body.offsetWidth > 900) {
-            box.style.transform = "translateX(40%)";
-        }
+    aside.style.top = "50%";
+    document.body.style.backdropFilter = "blur(5px)";
+    container.style.filter = "blur(4px)";
+
+}
+
+//  close the playlist div
+const closeBtnClick = () => {
+    const aside = document.getElementById("aside");
+    const container = document.getElementById("container");
+    aside.style.top = "-150%";
+    document.body.style.backdropFilter = "blur(1px)";
+    container.style.filter = "blur(0px)";
+  
+}
+//  like btn animation 
+const likeBtn = () => {
+    const likebtn = document.getElementById("likeBtn");
+    if (likebtn.classList.contains("fa-regular")) {
+        likebtn.classList.add("fa-solid")
+        likebtn.classList.remove("fa-regular")
     }
     else {
-        menuBtn.classList.remove("fa-rectangle-xmark");
-        menuBtn.classList.add("fa-bars");
-        aside.style.left = "-150%"
-        if (document.body.offsetWidth > 900) {
-            box.style.transform = "translateX(0%)";
-        }
+        likebtn.classList.add("fa-regular")
+        likebtn.classList.remove("fa-solid")
+
     }
 }
+
+
 masterplay.addEventListener('click', () => {
 
     //  condition for play pause button
@@ -208,32 +218,32 @@ Array.from(document.getElementsByClassName("songitemplay")).forEach((element) =>
     element.addEventListener('click', (e) => {
         // console.log(list)
 
-            makeAllplays();
-            songindex = parseInt(e.target.id);
-            e.target.classList.remove("fa-play-circle");
-            e.target.classList.add("fa-pause-circle");
-            audioElement.src = `songs/${songindex + 1}.mp3`;
-            audioElement.currentTime = 0;
-            audioElement.play();
-            masterplay.classList.remove("fa-play-circle")
-            masterplay.classList.add("fa-pause-circle")
-            mainimg.src = `image/${songindex + 1}.png`;
-            mainsong.innerHTML = songs[songindex].SongName
-            // box.style.background = `${}`
+        makeAllplays();
+        songindex = parseInt(e.target.id);
+        e.target.classList.remove("fa-play-circle");
+        e.target.classList.add("fa-pause-circle");
+        audioElement.src = `songs/${songindex + 1}.mp3`;
+        audioElement.currentTime = 0;
+        audioElement.play();
+        masterplay.classList.remove("fa-play-circle")
+        masterplay.classList.add("fa-pause-circle")
+        mainimg.src = `image/${songindex + 1}.png`;
+        mainsong.innerHTML = songs[songindex].SongName
+        // box.style.background = `${}`
 
-            if (audioElement.paused || audioElement.currentTime <= 0) {
-                audioElement.play();
-                masterplay.classList.remove('fa-play-circle')
-                masterplay.classList.add('fa-pause-circle')
-                musicOn = true;
-                rotateImg(musicOn);
-            } else {
-                audioElement.pause();
-                masterplay.classList.add('fa-play-circle')
-                masterplay.classList.remove('fa-pause-circle')
-                musicOn = false;
-                rotateImg(musicOn);
-            }
+        if (audioElement.paused || audioElement.currentTime <= 0) {
+            audioElement.play();
+            masterplay.classList.remove('fa-play-circle')
+            masterplay.classList.add('fa-pause-circle')
+            musicOn = true;
+            rotateImg(musicOn);
+        } else {
+            audioElement.pause();
+            masterplay.classList.add('fa-play-circle')
+            masterplay.classList.remove('fa-pause-circle')
+            musicOn = false;
+            rotateImg(musicOn);
+        }
 
     })
 })

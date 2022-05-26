@@ -3,9 +3,9 @@
     padding: 0;
 }
 
-/* .home {
-
-} */
+.home {
+overflow: hidden;
+}
 
 body {
     background: url(image/background1.png) no-repeat center center fixed;
@@ -13,16 +13,16 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+backdrop-filter: blur(1px);
 
 }
 
 aside {
-    width: 28%;
+    width : 450px;
     background-color: black;
-    top: 0;
-    left: -150%;
+    border-radius: 10px;
     display: flex;
-    height: 100%;
+    height: 89%;
     color: white;
     position: absolute;
     transition: all 0.5s ease-in-out;
@@ -32,6 +32,10 @@ aside {
     align-items: center;
     justify-content: flex-start;
     z-index: 100;
+    left: 50%;
+    top: -150%;
+    transform: translate(-50%, -50%);
+
 }
 
 .icon {
@@ -44,13 +48,11 @@ aside {
     cursor: pointer;
     z-index: 100;
 }
-.icon #menu-btn{
+.icon #close-btn{
     font-size: 2.5rem;
-    position: fixed;
+    position: absolute;
     top: 10px;
-    left: 10px;
-    z-index: 100;
-    /* display: none; */
+    right: 10px;
 }
 
 .options {
@@ -201,6 +203,9 @@ position: relative;
     justify-content: space-evenly;
     align-items: center;
 }
+.playpause #likeBtn{
+    transition: all 0.5s ease-in-out;
+}
 
 .playpause i {
     font-size: 2.5rem;
@@ -224,7 +229,8 @@ position: relative;
 @media (max-width:900px) {
     aside {
         width: 50%;
-        left: -150%;
+        height: 90vh;
+        top: -150%;
         position: absolute;
     }
     .icon #menu-btn{
@@ -267,7 +273,8 @@ position: relative;
 @media (max-width:650px) {
     
 aside{
-    width: 60%;
+    width: 70%;
+    height:85vh ;
 }
 .container .box .songimg .mainimg {
     height: 260px;
@@ -276,7 +283,8 @@ aside{
 }
 @media (max-width:550px){
     aside{
-        width: 70%;
+        width: 80%;
+        height:70vh ;
     }
     .container .box .songimg .mainimg {
         height: 240px;
@@ -289,7 +297,8 @@ aside{
 }
 @media (max-width:450px){
     aside{
-        width: 100%;
+        width: 80%;
+        height:60vh ;
     }
     .container .box {
         width: 80%;
@@ -299,10 +308,19 @@ aside{
         height: 220px;
         width: 220px;
     }
+    .playpause i {
+        font-size: 1.8rem;
+    }
+}
+@media (max-width:415px) {
+    .playpause i {
+        font-size: 1.6rem;
+    }
 }
 @media (max-width:300px){
     aside{
-        width: 100%;
+        width: 85%;
+        height:60vh ;
     }
     .container .box {
         width: 85%;
@@ -312,5 +330,8 @@ aside{
     .container .box .songimg .mainimg {
         height: 200px;
         width: 200px;
+    }
+    .playpause i {
+        font-size: 1rem;
     }
 }
