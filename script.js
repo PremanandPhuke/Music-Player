@@ -308,5 +308,7 @@ document.getElementById('previous').addEventListener('click', () => {
 
 })
 
+// navbar remaining
+// animated gif remaining
 
 
