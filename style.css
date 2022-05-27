@@ -2,7 +2,45 @@
     margin: 0;
     padding: 0;
 }
+.navbar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.navbar .logo{
+    height: 50px;
+    border-radius: 50%;
+}
+.navbar .navList{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+    align-items: center;
 
+}
+.navbar ul li{
+    color: #fff;
+    font-size: 1.5rem;
+    list-style: none;
+    margin: 0 25px;
+    cursor: pointer;
+}
+.navbar ul li:hover{
+    color:rgb(255, 38, 0); 
+}
+.navbar ul li i{
+color:rgb(255, 38, 0); 
+margin-right: 5px;
+}
 .home {
     overflow: hidden;
 }
@@ -18,11 +56,11 @@ body {
 }
 
 aside {
-    width: 450px;
+    height: 83%;
+    width: 440px;
     background-color: black;
     border-radius: 10px;
     display: flex;
-    height: 89%;
     color: white;
     position: absolute;
     transition: all 0.4s ease-in-out;
@@ -57,7 +95,7 @@ aside {
 }
 
 .options {
-    margin: 30px 0;
+    margin-top: 5px;
     display: block;
     height: 60vh;
     overflow-y: scroll;
@@ -144,7 +182,7 @@ a {
 .container {
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: 90vh;
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
@@ -172,7 +210,7 @@ a {
     color: wheat;
     border-radius: 12px;
     width: 400px;
-    height: 500px;
+    height: 470px;
     transition: all 0.5s ease-in-out;
     z-index: 20;
     display: flex;
@@ -297,29 +335,29 @@ a {
 }
 
 @media (max-width:550px) {
-    aside {
+    /* aside {
         width: 80%;
         height: 70vh;
-    }
+    } */
 
     .container .box .songimg .mainimg {
         height: 240px;
         width: 240px;
     }
 
-    .container .box {
+    .container .box,aside {
         width: 80%;
         height: 70vh;
     }
 }
 
 @media (max-width:450px) {
-    aside {
+    /* aside {
         width: 80%;
         height: 60vh;
-    }
+    } */
 
-    .container .box {
+    .container .box,aside {
         width: 80%;
         height: 60vh;
     }
@@ -348,12 +386,12 @@ a {
 }
 
 @media (max-width:300px) {
-    aside {
+    /* aside {
         width: 85%;
         height: 60vh;
-    }
+    } */
 
-    .container .box {
+    .container .box,aside {
         width: 85%;
         height: 60vh;
 
