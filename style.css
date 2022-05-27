@@ -316,12 +316,12 @@ a {
 @media (max-width:450px) {
     aside {
         width: 80%;
-        height: 70vh;
+        height: 60vh;
     }
 
     .container .box {
         width: 80%;
-        height: 70vh;
+        height: 60vh;
     }
 
     .container .box .songimg .mainimg {
@@ -341,9 +341,7 @@ a {
     .playpause i {
         font-size: 1.6rem;
     }
-    /* .playpause #masterplay{
-        font-size: 1.8rem;
-    } */
+  
     .icon #close-btn {
         font-size: 1.5rem;
     }
