@@ -100,7 +100,7 @@ div.innerHTML = list
 
 const menuBtnClick = () => {
     const aside = document.getElementById("aside");
-    aside.style.top = "55%";
+    aside.style.top = "50%";
     document.body.style.backdropFilter = "blur(5px)";
     container.style.filter = "blur(4px)";
 
