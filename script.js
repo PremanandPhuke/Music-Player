@@ -195,11 +195,11 @@ myprogressbar.addEventListener('change', () => {
 
 const makeAllplays = () => {
     Array.from(document.getElementsByClassName("songitemplay")).forEach((element) => {
-        element.classList.remove("fa-pause-circle")
-        element.classList.add("fa-play-circle");
+        element.addEventListener('click', (ele)=>{
+            console.log(ele)
+        })
 
-
-        if (audioElement.paused || audioElement.currentTime <= 0) {
+     if (audioElement.paused || audioElement.currentTime <= 0) {
             audioElement.play();
             masterplay.classList.remove('fa-play-circle')
             masterplay.classList.add('fa-pause-circle')
@@ -216,12 +216,13 @@ const makeAllplays = () => {
 }
 Array.from(document.getElementsByClassName("songitemplay")).forEach((element) => {
     element.addEventListener('click', (e) => {
-        // console.log(list)
+      
+           e.target.classList.contains("fa-pause-circle")?(e.target.classList.add("fa-play-circle"),e.target.classList.remove("fa-pause-circle")):(e.target.classList.remove("fa-play-circle"),e.target.classList.add("fa-pause-circle"))
 
         makeAllplays();
         songindex = parseInt(e.target.id);
-        e.target.classList.remove("fa-play-circle");
-        e.target.classList.add("fa-pause-circle");
+        // e.target.classList.remove("fa-play-circle");
+        // e.target.classList.add("fa-pause-circle");
         audioElement.src = `songs/${songindex + 1}.mp3`;
         audioElement.currentTime = 0;
         audioElement.play();
