@@ -1,29 +1,59 @@
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     margin: 0;
     padding: 0;
 }
-.navbar{
+
+i{
+    cursor: pointer;
+}
+i:hover{
+    transform: scale(1.2);
+}
+body {
+    background: url(image/background1.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    backdrop-filter: blur(1px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-end;
+    transition: all 0.3s ease;
+
+}
+
+.navbar {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
     align-items: flex-start;
     height: 100vh;
-    width: 18%;
-    background-color:  rgb(31 31 82);
-    position: absolute;
+    width: 20%;
+    background-color: rgb(31 31 82);
+    position: sticky;
     padding: 20px;
     padding-left: 30px;
     left: 0;
+    top: 0;
+    bottom: 0;
     box-sizing: border-box;
     z-index: 1000;
     box-shadow: 15px 0px 20px rgb(14 14 38);
 }
-.navbar .logo{
+
+.navbar .logo {
     height: 40px;
     /* border-radius: 50%; */
 }
-.navbar .navList{
+
+.navbar .navList {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -32,7 +62,7 @@
     margin-top: 16%;
 }
 
-.navbar ul li{
+.navbar ul li {
     color: #fff;
     font-size: 1rem;
     font-weight: 200;
@@ -40,31 +70,36 @@
     margin: 10px 0;
     cursor: pointer;
 }
-.navbar ul li:hover i{
-    color:rgb(255, 38, 0); 
+
+.navbar ul li:hover i {
+    color: rgb(255, 38, 0);
 
 }
-.activeNavlist{
-    color:rgb(255, 38, 0); 
+
+.activeNavlist {
+    color: rgb(255, 38, 0);
 }
-.navbar ul li i{
-color:#fff;
-margin-right: 15px;
-font-size: 1.4rem;
-transition: all 0.2s ease;
+
+.navbar ul li i {
+    color: #fff;
+    margin-right: 15px;
+    font-size: 1.4rem;
+    transition: all 0.2s ease;
 }
+
+section {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+}
+
 .home {
     overflow: hidden;
-}
-
-body {
-    background: url(image/background1.png) no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    backdrop-filter: blur(1px);
-    transition: all 0.3s ease;
+    justify-content: center;
+    position: relative;
 }
 
 aside {
@@ -217,6 +252,25 @@ a {
 }
 
 .container .box {
+    padding: 2% 1%;
+    background: linear-gradient(#fff, rgb(243, 156, 56));
+    color: wheat;
+    border-radius: 12px;
+    width: 50%;
+    height: 20px;
+    transition: all 0.5s ease-in-out;
+    z-index: 20;
+    display: flex;
+    position: absolute;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    bottom: 20px;
+    align-items: center;
+    justify-content: space-around;
+    filter: grayscale(1);
+}
+/* 
+.container .box {
     padding: 2%;
     background: linear-gradient(#fff, rgb(243, 156, 56));
     color: wheat;
@@ -226,17 +280,17 @@ a {
     transition: all 0.5s ease-in-out;
     z-index: 20;
     display: flex;
-    position: relative;
+    position: absolute;
     flex-wrap: nowrap;
     flex-direction: column;
     align-items: stretch;
     justify-content: space-around;
 
-}
+} */
 
 .container .box .songimg .mainimg {
-    height: 250px;
-    width: 250px;
+    height:50px;
+    width: 50px;
     border-radius: 50%;
     /* padding: 20px 0; */
     animation: rotate 5s linear paused;
@@ -275,8 +329,94 @@ a {
     /* padding: 10px 20px; */
     cursor: pointer;
 }
-.playpause #masterplay{
+
+.playpause #masterplay {
     font-size: 3.5rem;
+}
+
+.library {
+    background-color: rgb(34, 33, 54);
+    /* justify-content: space-between; */
+    padding: 5% 0;
+    height: max-content;
+    text-align: center;
+}
+
+.heading {
+    color: #fff;
+font-size: 2rem;
+}
+
+.cardbody {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 50%;
+    /* background-color: aliceblue; */
+    gap: 30px;
+    margin-top: 5%;
+}
+
+.cardbody .card {
+    height: 200px;
+    width: 200px;
+    border-radius: 10px;
+    display: flex;
+    background-color: #262444;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border: 2px solid #262444;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 10px 0;
+    position: relative;
+}
+.card:hover a{
+    display: flex;
+}
+.card:hover{
+    background-color: #2e2a56;
+}
+.card:hover img{
+   transform: scale(0.9);
+}
+
+.card img {
+    width: 180px;
+    height: 140px;
+    border-radius: 10px;
+transition: all 0.3s ease;
+}
+
+.card a{
+    position: absolute;
+    background-color: rgb(255, 38, 0);
+    height: 45px;
+    width: 45px;
+    z-index: 100;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    bottom: 77px;
+    right: 22px;
+    display: none;
+    box-shadow: 1px 1px 10px rgb(255 38 0), -1px -1px 10px rgb(235, 230, 229);
+}
+.card a i{
+    font-size: 1.2rem;
+    transition: all 0.5s ease;
+    /* z-index: 1000; */
+}
+
+.card .playlistname {
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.card .followersNum {
+    color: rgb(151, 151, 151);
+    font-size: 1rem;
 }
 
 @keyframes rotate {
@@ -357,7 +497,8 @@ a {
         width: 240px;
     }
 
-    .container .box,aside {
+    .container .box,
+    aside {
         width: 80%;
         height: 70vh;
     }
@@ -369,7 +510,8 @@ a {
         height: 60vh;
     } */
 
-    .container .box,aside {
+    .container .box,
+    aside {
         width: 80%;
         height: 70vh;
     }
@@ -382,7 +524,8 @@ a {
     .playpause i {
         font-size: 1.8rem;
     }
-    .playpause #masterplay{
+
+    .playpause #masterplay {
         font-size: 3rem;
     }
 }
@@ -391,7 +534,7 @@ a {
     .playpause i {
         font-size: 1.6rem;
     }
-  
+
     .icon #close-btn {
         font-size: 1.5rem;
     }
@@ -403,7 +546,8 @@ a {
         height: 60vh;
     } */
 
-    .container .box,aside {
+    .container .box,
+    aside {
         width: 85%;
         height: 60vh;
 
@@ -417,7 +561,8 @@ a {
     .playpause i {
         font-size: 1rem;
     }
-    .playpause #masterplay{
+
+    .playpause #masterplay {
         font-size: 1.5rem;
     }
 }

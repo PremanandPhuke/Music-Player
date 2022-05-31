@@ -103,7 +103,14 @@ const menuBtnClick = () => {
     aside.style.top = "50%";
     document.body.style.backdropFilter = "blur(5px)";
     container.style.filter = "blur(4px)";
+    console.log(window.pageYOffset)
 
+ if(window.pageYOffset>0){
+const ele =   document.getElementById("cardbody");
+window.scroll(0,0)
+   console.log(document.body.scrollTop>=0)
+
+ }
 }
 
 //  close the playlist div
