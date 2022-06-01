@@ -23,7 +23,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     transition: all 0.3s ease;
 
 }
@@ -88,12 +88,13 @@ body {
 }
 
 section {
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     display: flex;
-    /* justify-content: center; */
-    align-items: center;
     flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 .home {
@@ -228,7 +229,7 @@ a {
 
 .container {
     display: flex;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     justify-content: center;
     align-items: center;
@@ -237,40 +238,80 @@ a {
     transition: all 0.3s ease;
 }
 
-.container .box .songname h3 {
+#box .songname h3 {
     padding: 5px 0;
     color: black;
 }
 
-.container .box .animation input {
+.activeBox .animation input {
+    display: block;
+}
+ .animation input {
     width: 90%;
     padding: 10px 0;
     cursor: pointer;
     color: rgb(255, 4, 4);
     caret-color: coral;
-
+display: none;
 }
 
-.container .box {
+ .box {
     padding: 2% 1%;
     background: linear-gradient(#fff, rgb(243, 156, 56));
     color: wheat;
     border-radius: 12px;
     width: 50%;
-    height: 20px;
+    height: 25px;
     transition: all 0.5s ease-in-out;
     z-index: 20;
     display: flex;
-    position: absolute;
+    position: sticky;
     flex-wrap: nowrap;
     flex-direction: row;
-    bottom: 20px;
+    top: 87%;
     align-items: center;
     justify-content: space-around;
-    filter: grayscale(1);
 }
-/* 
-.container .box {
+.box:hover .upIcon{
+    display: flex;
+}
+.activeBox:hover .downIcon{
+    display: flex;
+}
+.upIcon , .downIcon{
+    position: absolute;
+    height: 30px;
+    width: 40px;
+    background-color: rgb(255, 4, 4);
+    top: -23px;
+    left: 45%;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+    box-shadow: 3px 5px 4px rgb(38 22 22);
+    font-size: 2rem;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in;
+}
+/* .downIcon{
+    position: absolute;
+    height: 30px;
+    width: 40px;
+    background-color: rgb(255, 4, 4);
+    bottom: 3px;
+    left: 50%;
+    border-radius: 5px;
+    text-align: center;
+    display: none;
+    box-shadow: -3px -5px 4px rgb(38 22 22);
+    font-size: 2rem;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in;
+} */
+
+ .activeBox {
     padding: 2%;
     background: linear-gradient(#fff, rgb(243, 156, 56));
     color: wheat;
@@ -285,10 +326,12 @@ a {
     flex-direction: column;
     align-items: stretch;
     justify-content: space-around;
+    top: 21%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+} 
 
-} */
-
-.container .box .songimg .mainimg {
+ .songimg .mainimg {
     height:50px;
     width: 50px;
     border-radius: 50%;
@@ -297,17 +340,18 @@ a {
     animation-iteration-count: infinite;
 
 }
+.activeBox .songimg .mainimg {
+    height: 300px;
+    width: 300px;
+}
 
-.container .box .songimg .gif {
+ .songimg .gif {
     height: 200px;
     width: 200px;
     /* border-radius: 50%; */
     padding: 20px 0;
 }
 
-.container .box .animation .myprogressbar {
-    color: rgb(255, 38, 0);
-}
 
 .playpause {
     display: flex;
@@ -337,7 +381,7 @@ a {
 .library {
     background-color: rgb(34, 33, 54);
     /* justify-content: space-between; */
-    padding: 5% 0;
+    padding: 2% 0;
     height: max-content;
     text-align: center;
 }
@@ -345,16 +389,17 @@ a {
 .heading {
     color: #fff;
 font-size: 2rem;
+margin-bottom: 2rem;
 }
 
 .cardbody {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    width: 50%;
-    /* background-color: aliceblue; */
+    width: 80%;
     gap: 30px;
-    margin-top: 5%;
+    align-items: center;
+    margin-bottom: 6%;
 }
 
 .cardbody .card {
@@ -418,6 +463,12 @@ transition: all 0.3s ease;
     color: rgb(151, 151, 151);
     font-size: 1rem;
 }
+.row{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
 
 @keyframes rotate {
     0% {
@@ -454,12 +505,12 @@ transition: all 0.3s ease;
         align-items: center;
     }
 
-    .container .box {
+     .box {
         /* width: 45%; */
         height: 80vh;
     }
 
-    .container .box .songimg .mainimg {
+     #box .songimg .mainimg {
         margin: 3%;
         position: relative;
         height: 280px;

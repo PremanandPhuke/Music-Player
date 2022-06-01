@@ -1,0 +1,21 @@
+<div class="box" id="box" align="center">
+                    <div class="songimg">
+                        <img src="image/1.png" alt="" id="mainimg" class="mainimg">
+                        <img src="image/1.gif" alt="" id="gif" class="gif">
+                    </div>
+                    <div class="songname">
+                        <h3 id="mainsong">Agar Tum Sath Ho...</h3>
+                    </div>
+                    <div class="animation">
+                        <input type="range" name="progressbar" max="100" value="0" id="myprogressbar">
+                    </div>
+
+                    <div class="playpause">
+                        <i class="fa-solid fa-heart"></i>
+                        <i class="fa-regular fa-heart" id="likeBtn" onclick="likeBtn()"></i>
+                        <i class="fas fa-2x fa-step-backward" id="previous"></i>
+                        <i id="masterplay" class="far fa-2x fa-play-circle"></i>
+                        <i class="fas fa-2x fa-step-forward" id="next"></i>
+                        <i class="fa-solid fa-list menu-btn " id="menu-btn" onclick="menuBtnClick()"></i>
+                    </div>
+                </div>

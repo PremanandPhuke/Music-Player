@@ -315,8 +315,24 @@ document.getElementById('previous').addEventListener('click', () => {
     }
 
 })
+// animation of main box 
+const activeBox =()=>{
+    window.scroll(0,0);
+    const box = document.getElementById("box");
+    const home = document.getElementById("home");
+  
+    if(box.classList.contains("box")){
+        box.classList.add("activeBox")
+        box.classList.remove("box")
+        home.style.filter = "blur(5px)"
+    }
+    else{
+        box.classList.remove("activeBox")
+        box.classList.add("box")
+        home.style.filter = "blur(0px)"
+    }
+}
 
-// navbar remaining
 // animated gif remaining
 
 
