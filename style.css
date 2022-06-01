@@ -6,6 +6,9 @@ html {
     margin: 0;
     padding: 0;
 }
+::-webkit-scrollbar{
+    display: none;
+}
 
 i{
     cursor: pointer;
@@ -384,6 +387,8 @@ display: none;
     padding: 2% 0;
     height: max-content;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
 .heading {
@@ -469,7 +474,40 @@ transition: all 0.3s ease;
     flex-wrap: nowrap;
     align-items: center;
 }
-
+.searchBar{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    position: absolute;
+    right: -150%;
+    height: 50px;
+    border-radius: 10px;
+    width: 60%;
+    overflow: hidden;
+    border: 2px solid black;
+    /* gap: 4%; */
+    justify-content: flex-start;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+.searchBar input{
+    height: 100%;
+    width: 90%;
+    padding-left: 4%;
+    font-size: 1.5rem;
+}
+.searchBar i{
+    position: relative;
+    text-align: center;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    width: 10%;
+    background-color: red;
+    padding: 3% 0;
+    font-size: 1.5rem;
+}
 @keyframes rotate {
     0% {
         transform: rotate(0deg);

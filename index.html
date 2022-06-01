@@ -20,7 +20,7 @@
                 <li><i class="fa-solid fa-house"></i>Home</li>
             </a>
             <!--activeNavlist -->
-            <li><i class="fa-solid fa-search"></i>Search </li>
+            <a href="#library" onclick="searchSongs()"><li><i class="fa-solid fa-search"></i>Search </li></a>
             <a href="#library">
                 <li><i class="fa-solid fa-lines-leaning"></i>Your Library</li>
             </a><br>
@@ -29,9 +29,7 @@
                 <li><i class="fa-solid fa-heart"></i>Liked Songs</li>
             </a>
         </ul>
-    </div>
-
-    <div class="row">
+    </div><div class="row">
         <!-- song playing container -->
         <div class="box" id="box" align="center" >
             <!-- up arrow button -->
@@ -142,6 +140,10 @@
         </section>
         <!-- </section> -->
         <section class="library" id="library">
+            <div class="searchBar" id="searchBar">
+                <input type="text" placeholder="search songs here">
+                <i class="fa-solid fa-search"></i>
+            </div>
             <h1 class="heading">Your Playlists</h1>
             <div class="cardbody" id="cardbody">
                 <div class="card">

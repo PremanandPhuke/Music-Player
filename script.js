@@ -332,7 +332,15 @@ const activeBox =()=>{
         home.style.filter = "blur(0px)"
     }
 }
-
+const searchSongs =()=>{
+    const searchBar = document.getElementById("searchBar");
+    if(searchBar.style.right == "-150%"){
+    searchBar.style.right = "25%";
+    }
+    else{
+        searchBar.style.right = "-150%"
+    }
+}
 // animated gif remaining
 
 
