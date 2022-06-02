@@ -8,6 +8,11 @@ let songitem = Array.from(document.getElementsByClassName('songitem'));
 let imgEffect = document.getElementById("mainimg");
 let box = document.getElementsByClassName('box')
 let mainsong = document.getElementById('mainsong');
+let homebutton= document.getElementById('homebutton');
+let librarybutton= document.getElementById('librarybutton');
+let home= document.getElementById('home');
+let library= document.getElementById('library');
+
 
 
 // const res = fetch("songs.json")
@@ -332,15 +337,41 @@ const activeBox =()=>{
         home.style.filter = "blur(0px)"
     }
 }
-// const searchSongs =()=>{
-//     const searchBar = document.getElementById("searchBar");
-//     if(searchBar.style.right == "-150%"){
-//     searchBar.style.right = "25%";
-//     }
-//     else{
-//         searchBar.style.right = "-150%"
-//     }
-// }
+const searchSongs =()=>{
+    const searchBar = document.getElementById("searchBar");
+    if(searchBar.style.right == "-150%"){
+    searchBar.style.right = "0%";
+    }
+    else{
+        searchBar.style.right = "-150%"
+    }
+}
 // animated gif remaining
 
 
+//for home p
+homebutton.addEventListener('click', ()=>{
+    if(home.style.display='none'){
+        home.style.display='flex';
+        library.style.display='none';
+        
+    }
+    else{
+        console.log('cant work');
+    }
+
+    
+})
+
+//for home p
+librarybutton.addEventListener('click', ()=>{
+    if(library.style.display='none'){
+        library.style.display='flex';
+        home.style.display='none';
+       
+    }
+    else{
+        console.log('cant work');
+    }
+    
+})
