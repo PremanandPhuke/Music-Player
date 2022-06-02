@@ -5,123 +5,226 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spotify-Clone</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/fontawesome-all.min.css">
     <script src="https://kit.fontawesome.com/b9b537f465.js" crossorigin="anonymous"></script>
+    <title>Spotify-Clone</title>
 
 </head>
 
 <body>
-    <div class="home">
-        <aside align="center" id="aside">
-            <div class="icon" align="left">
-                <i class="fa-solid fa-bars menu-btn" id="menu-btn" onclick="menuBtnClick()"></i>
+    <!-- <section id="home" class="home"> -->
+    <div class="navbar" id="navbar">
+        <img src="./image/logo.png" alt="Spotify" class="logo">
+        <ul class="navList">
+            <a href="#home">
+                <li><i class="fa-solid fa-house"></i>Home</li>
+            </a>
+            <!--activeNavlist -->
+            <a href="#library" onclick="searchSongs()"><li><i class="fa-solid fa-search"></i>Search </li></a>
+            <a href="#library">
+                <li><i class="fa-solid fa-lines-leaning"></i>Your Library</li>
+            </a><br>
+            <li><i class="fa-solid fa-square-plus"></i>Create Playlist </li>
+            <a href="likedsongs.html">
+                <li><i class="fa-solid fa-heart"></i>Liked Songs</li>
+            </a>
+        </ul>
+    </div><div class="row">
+        
+        <!-- song playing container -->
+        <div class="box" id="box" align="center" >
+            <!-- up arrow button -->
+            <div class="upIcon">
+                <i class="fa-solid fa-angle-up" onclick="activeBox()"></i>
             </div>
-            <h1>Best Collection</h1>
-            <div class="options " id="options" align="center">
-                <!-- <div class="songitem"> -->
-                    <!-- <img src="image/1.png" alt="agar tum sath ho">
-                    <span class="name">Agar Tum Sath Ho...</span>
-                    <span class="songlistplay">
-                        <span class="songTime">5:40</span>
-                        <i class="far fa-play-circle songitemplay" id="0"></i>
-                    </span>
-                </div>
-                <div class="songitem">
-                    <img src="image/2.png" alt="agar tum sath ho">
-                    <span class="name">Ye Raate Ye Mous...</span>
-                    <span class="songlistplay">
-                        <span class="songTime">5:40</span> <i class="far fa-play-circle songitemplay" id="1"></i>
-                    </span>
-                </div>
-                <div class="songitem">
-                    <img src="image/3.png" alt="agar tum sath ho">
-                    <span class="name">Lag Ja Gale Ki Ye....</span>
-                    <span class="songlistplay">
-                        <span class="songTime">5:40</span> <i class="far fa-play-circle songitemplay" id="2"></i>
-                    </span>
-                </div>
-                <div class="songitem">
-                    <img src="image/4.png" alt="agar tum sath ho">
-                    <span class="name">Yugat Mandli Yugat..</span>
-                    <span class="songlistplay">
-                        <span class="songTime">5:40</span> <i class="far fa-play-circle songitemplay" id="3"></i>
-                    </span>
-                </div>
-                <div class="songitem">
-                    <img src="image/5.png" alt="agar tum sath ho">
-                    <span class="name">Shivba Raja Shivb...</span>
-                    <span class="songlistplay">
-                        <span class="songTime">5:40</span> <i class="far fa-play-circle songitemplay" id="4"></i>
-                    </span>
-                </div>
-                <div class="songitem">
-                    <img src="image/6.png" alt="agar tum sath ho">
-                    <span class="name">Nacho Nacho...</span>
-                    <span class="songlistplay">
-                        <span class="songTime">5:40</span> <i class="far fa-play-circle songitemplay" id="5"></i>
-                    </span>
-                </div>
-                <div class="songitem">
-                    <img src="image/7.png" alt="agar tum sath ho">
-                    <span class="name">Hare Ram...</span>
-                    <span class="songlistplay">
-                        <span class="songTime">5:40</span> <i class="far fa-play-circle songitemplay" id="6"></i>
-                    </span>
-                </div>
-                <div class="songitem">
-                    <img src="image/1.png" alt="agar tum sath ho">
-                    <span class="name">Agar Tum Sath Ho...</span>
-                    <span class="songlistplay">
-                        <span class="songTime">5:40</span> <i class="far fa-play-circle songitemplay" id="7"></i>
-                    </span>
-                </div>
-                <div class="songitem">
-                    <img src="image/1.png" alt="agar tum sath ho">
-                    <span class="name">Agar Tum Sath Ho...</span>
-                    <span class="songlistplay">
-                        <span class="songTime">5:40</span> <i class="far fa-play-circle songitemplay" id="8"></i>
-                    </span>
-                </div>
-                <div class="songitem">
-                    <img src="image/1.png" alt="agar tum sath ho">
-                    <span class="name">Agar Tum Sath Ho...</span>
-                    <span class="songlistplay">
-                        <span class="songTime">5:40</span>
-                        <i class="far fa-play-circle songitemplay" id="9"></i>
-                    </span>
-                </div> -->
+            <!-- down arrow button -->
+            <div class="downIcon">
+                <i class="fa-solid fa-angle-down" onclick="activeBox()"></i>
             </div>
-            <button class="cpBtn"><a href="#">CREATE PAYLIST</a></button>
+            <div class="songimg">
+                <img src="image/1.png" alt="" id="mainimg" class="mainimg">
+                <!-- <img src="image/1.gif" alt="" id="gif" class="gif"> -->
+            </div>
+            <div class="songname">
+                <h3 id="mainsong">Agar Tum Sath Ho...</h3>
+            </div>
+            <div class="animation">
+                <input type="range" name="progressbar" max="100" value="0" id="myprogressbar">
+            </div>
 
-        </aside>
-        <div class="container">
-            <div class="box" id="box" align="center">
-                <div class="songimg">
-                    <img src="image/1.png" alt="" id="mainimg" class="mainimg">
-                    <!-- <img src="image/1.gif" alt="" id="gif" class="gif"> -->
-                </div>
-                <div class="songname">
-                    <h3 id="mainsong">Agar Tum Sath Ho...</h3>
-                </div>
-                <div class="animation">
-                    <input type="range" name="progressbar" max="100" value="0" id="myprogressbar">
-                </div>
-
-                <div class="playpause">
-                    <i class="fas fa-2x fa-step-backward" id="previous"></i>
-                    <i id="masterplay" class="far fa-2x fa-play-circle"></i>
-                    <i class="fas fa-2x fa-step-forward" id="next"></i>
-                </div>
+            <div class="playpause">
+                <!-- <i class="fa-solid fa-heart"></i> -->
+                <i class="fa-regular fa-heart" id="likeBtn" onclick="likeBtn()"></i>
+                <i class="fas fa-2x fa-step-backward" id="previous"></i>
+                <i id="masterplay" class="far fa-2x fa-play-circle"></i>
+                <i class="fas fa-2x fa-step-forward" id="next"></i>
+                <i class="fa-solid fa-list menu-btn " id="menu-btn" onclick="menuBtnClick()"></i>
             </div>
         </div>
+        <!-- home section starts -->
+        <section class="home" id="home">
+            <aside align="center" id="aside">
+                <div class="icon" align="left">
+                    <i class="fa-solid fa-rectangle-xmark close-btn" id="close-btn" onclick="closeBtnClick()"></i>
+                </div>
+                <h1>Best Collection</h1>
+                <div class="options " id="options" align="center">
+                    <!-- adding songs using javascript -->
+                </div>
+                <button class="cpBtn"><a href="#">CREATE PAYLIST</a></button>
 
+            </aside>
+            <div class="searchBar" id="searchBar">
+                <input type="text" placeholder="search songs here">
+                <i class="fa-solid fa-search"></i>
+            </div>
+            <div class="container" id="container">
+                <!-- playlists  -->
+                
+
+                <div class="cardbody" id="cardbody">
+                   
+
+                    <div class="card">
+                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <img src="https://i.pinimg.com/originals/9a/34/6c/9a346ce2b3c028e3bab04700a5adfa4a.png" alt=""
+                            class="playlistimg">
+                        <p class="playlistname">Top 50 Recently Played songs</p>
+                        <p class="followersNum">50,000 Followers</p>
+                    </div>
+                    <div class="card">
+                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <img src="https://d2rd7etdn93tqb.cloudfront.net/wp-content/uploads/2022/03/spotify-playlist-cover-orange-headphones-032322.jpg"
+                            alt="" class="playlistimg">
+                        <p class="playlistname">Top 50 Hindi songs</p>
+                        <p class="followersNum">50,000 Followers</p>
+                    </div>
+                    <div class="card">
+                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <img src="https://d2rd7etdn93tqb.cloudfront.net/wp-content/uploads/2022/03/spotify-playlist-cover-orange-headphones-032322.jpg"
+                            alt="" class="playlistimg">
+                        <p class="playlistname">Top 50 Marathi songs</p>
+                        <p class="followersNum">50,000 Followers</p>
+                    </div>
+                    <div class="card">
+                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <img src="https://d2rd7etdn93tqb.cloudfront.net/wp-content/uploads/2022/03/spotify-playlist-cover-orange-headphones-032322.jpg"
+                            alt="" class="playlistimg">
+                        <p class="playlistname">Top 50 Telugu songs</p>
+                        <p class="followersNum">50,000 Followers</p>
+                    </div>
+                    <div class="card">
+                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <img src="https://i.pinimg.com/736x/3b/f8/bd/3bf8bd524236f7af4940bd4ff002477f.jpg" alt=""
+                            class="playlistimg">
+                        <p class="playlistname">Top 50 Malyalam songs</p>
+                        <p class="followersNum">50,000 Followers</p>
+                    </div>
+                    <div class="card">
+                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <img src="https://i.pinimg.com/originals/9a/34/6c/9a346ce2b3c028e3bab04700a5adfa4a.png" alt=""
+                            class="playlistimg">
+                        <p class="playlistname">Top 50 songs</p>
+                        <p class="followersNum">50,000 Followers</p>
+                    </div>
+                    <div class="card">
+                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <img src="https://d2rd7etdn93tqb.cloudfront.net/wp-content/uploads/2022/03/spotify-playlist-cover-orange-headphones-032322.jpg"
+                            alt="" class="playlistimg">
+                        <p class="playlistname">Top 50 songs</p>
+                        <p class="followersNum">50,000 Followers</p>
+                    </div>
+                    <div class="card">
+                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <img src="https://i.pinimg.com/736x/3b/f8/bd/3bf8bd524236f7af4940bd4ff002477f.jpg" alt=""
+                            class="playlistimg">
+                        <p class="playlistname">Top 50 songs</p>
+                        <p class="followersNum">50,000 Followers</p>
+                    </div>
+                   
+
+
+                </div>
+
+        </section>
+        <!-- </section> -->
+        <section class="library" id="library">
+            
+            <h1 class="heading">Your Playlists</h1>
+            <div class="cardbody" id="cardbody">
+                <div class="card">
+                    <a href="#home" onclick=" makeAllplays()"><i class="fa-solid fa-play"></i></a>
+                    <img src="https://i.pinimg.com/originals/8d/64/e9/8d64e974c73f8cb168958407dc79eb17.jpg" alt=""
+                        class="playlistimg">
+                    <p class="playlistname">Top 50 songs</p>
+                    <p class="followersNum">50,000 Followers</p>
+                </div>
+                <div class="card">
+                    <a href=""><i class="fa-solid fa-play"></i></a>
+                    <img src="https://cdn.dribbble.com/users/278624/screenshots/4413242/playlist_cover2.png" alt=""
+                        class="playlistimg">
+                    <p class="playlistname">Top 50 songs</p>
+                    <p class="followersNum">50,000 Followers</p>
+                </div>
+                <div class="card">
+                    <a href=""><i class="fa-solid fa-play"></i></a>
+                    <img src="https://www.thetechtoys.com/wp-content/uploads/2022/01/how-to-change-playlist-cover-picture-on-Spotify-compressed.jpg"
+                        alt="" class="playlistimg">
+                    <p class="playlistname">Top 50 songs</p>
+                    <p class="followersNum">50,000 Followers</p>
+                </div>
+                <div class="card">
+                    <a href=""><i class="fa-solid fa-play"></i></a>
+                    <img src="https://pro2-bar-s3-cdn-cf4.myportfolio.com/dbea3cc43adf643e2aac2f1cbb9ed2f0/f14d6fc4-2cea-41a2-9724-a7e5dff027e8_rw_1200.jpg?h=60e8fb45f75e1a2612c53a4f2174997c"
+                        alt="" class="playlistimg">
+                    <p class="playlistname">Top 50 songs</p>
+                    <p class="followersNum">50,000 Followers</p>
+                </div>
+                <div class="card">
+                    <a href=""><i class="fa-solid fa-play"></i></a>
+                    <img src="https://d2rd7etdn93tqb.cloudfront.net/wp-content/uploads/2022/03/spotify-playlist-cover-orange-headphones-032322.jpg"
+                        alt="" class="playlistimg">
+                    <p class="playlistname">Top 50 songs</p>
+                    <p class="followersNum">50,000 Followers</p>
+                </div>
+                <div class="card">
+                    <a href=""><i class="fa-solid fa-play"></i></a>
+                    <img src="https://i.pinimg.com/736x/3b/f8/bd/3bf8bd524236f7af4940bd4ff002477f.jpg" alt=""
+                        class="playlistimg">
+                    <p class="playlistname">Top 50 songs</p>
+                    <p class="followersNum">50,000 Followers</p>
+                </div>
+                <div class="card">
+                    <a href=""><i class="fa-solid fa-play"></i></a>
+                    <img src="https://i.pinimg.com/originals/9a/34/6c/9a346ce2b3c028e3bab04700a5adfa4a.png" alt=""
+                        class="playlistimg">
+                    <p class="playlistname">Top 50 songs</p>
+                    <p class="followersNum">50,000 Followers</p>
+                </div>
+                <div class="card">
+                    <a href=""><i class="fa-solid fa-play"></i></a>
+                    <img src="https://media.graphassets.com/WggvT12kThWJhx8e7Ukk" alt="" class="playlistimg">
+                    <p class="playlistname">Top 50 songs</p>
+                    <p class="followersNum">50,000 Followers</p>
+                </div>
+                <div class="card">
+                    <a href=""><i class="fa-solid fa-play"></i></a>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqcydhz-DZUwpXeKrML-KeV1HSFjAhiKup2g&usqp=CAU"
+                        alt="" class="playlistimg">
+                    <p class="playlistname">Top 50 songs</p>
+                    <p class="followersNum">50,000 Followers</p>
+                </div>
+                <div class="card">
+                    <a href=""><i class="fa-solid fa-play"></i></a>
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa1jF1XrqwYWtOEXGwXrq6qcpiPdzIklqDvpOvi6Sz7fSvwgkHJC_rIpTi-FQCPjVZhpM&usqp=CAU"
+                        alt="" class="playlistimg">
+                    <p class="playlistname">Top 50 songs</p>
+                    <p class="followersNum">50,000 Followers</p>
+                </div>
+            </div>
+        </section>
     </div>
-
     <script src="script.js"></script>
-
-
 
 </body>
 
