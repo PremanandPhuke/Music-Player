@@ -6,16 +6,21 @@ html {
     margin: 0;
     padding: 0;
 }
-::-webkit-scrollbar{
+
+::-webkit-scrollbar {
     display: none;
 }
 
-i{
+i {
     cursor: pointer;
+    transition: all 0.2s;
 }
-i:hover{
+
+i:hover {
+
     transform: scale(1.2);
 }
+
 body {
     background: url(image/background1.png) no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -107,7 +112,7 @@ section {
 }
 
 aside {
-    height: 89%;
+    height: 70%;
     width: 450px;
     background-color: black;
     border-radius: 10px;
@@ -231,9 +236,10 @@ a {
 }
 
 .container {
+    /* border: 1px solid red; */
     display: flex;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     justify-content: center;
     align-items: center;
     flex-wrap: nowrap;
@@ -249,21 +255,24 @@ a {
 .activeBox .animation input {
     display: block;
 }
- .animation input {
-    width: 90%;
+.box .animation{
+    width: 30%;
+}
+.animation input {
+    width: 100%;
     padding: 10px 0;
     cursor: pointer;
     color: rgb(255, 4, 4);
     caret-color: coral;
-display: none;
+    /* display: none; */
 }
 
- .box {
+.box {
     padding: 2% 1%;
     background: linear-gradient(#fff, rgb(243, 156, 56));
     color: wheat;
     border-radius: 12px;
-    width: 50%;
+    width: 87%;
     height: 25px;
     transition: all 0.5s ease-in-out;
     z-index: 20;
@@ -271,17 +280,23 @@ display: none;
     position: sticky;
     flex-wrap: nowrap;
     flex-direction: row;
-    top: 87%;
+    top: 90%;
     align-items: center;
     justify-content: space-around;
+    margin-right: 15px;
+   
 }
-.box:hover .upIcon{
+
+.box:hover .upIcon {
     display: flex;
 }
-.activeBox:hover .downIcon{
+
+.activeBox:hover .downIcon {
     display: flex;
 }
-.upIcon , .downIcon{
+
+.upIcon,
+.downIcon {
     position: absolute;
     height: 30px;
     width: 40px;
@@ -297,6 +312,7 @@ display: none;
     justify-content: center;
     transition: all 0.3s ease-in;
 }
+
 /* .downIcon{
     position: absolute;
     height: 30px;
@@ -314,7 +330,7 @@ display: none;
     transition: all 0.3s ease-in;
 } */
 
- .activeBox {
+.activeBox {
     padding: 2%;
     background: linear-gradient(#fff, rgb(243, 156, 56));
     color: wheat;
@@ -331,11 +347,11 @@ display: none;
     justify-content: space-around;
     top: 21%;
     left: 50%;
-    transform: translate(-50%,-50%);
-} 
+    transform: translate(-50%, -50%);
+}
 
- .songimg .mainimg {
-    height:50px;
+.songimg .mainimg {
+    height: 50px;
     width: 50px;
     border-radius: 50%;
     /* padding: 20px 0; */
@@ -343,12 +359,13 @@ display: none;
     animation-iteration-count: infinite;
 
 }
+
 .activeBox .songimg .mainimg {
     height: 300px;
     width: 300px;
 }
 
- .songimg .gif {
+.songimg .gif {
     height: 200px;
     width: 200px;
     /* border-radius: 50%; */
@@ -366,6 +383,16 @@ display: none;
     padding: 10px 0px;
 }
 
+.box .playpause{
+    display: flex;
+    flex-direction: row;
+    width: 10%;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0px;
+
+}
 .playpause #likeBtn {
     transition: all 0.5s ease-in-out;
 }
@@ -376,25 +403,34 @@ display: none;
     /* padding: 10px 20px; */
     cursor: pointer;
 }
+.box .playpause i {
+    font-size: 1.2rem;
+    color: rgb(255, 38, 0);
+    /* padding: 10px 20px; */
+    margin: 0 10px;
+    cursor: pointer;
+}
 
 .playpause #masterplay {
     font-size: 3.5rem;
 }
 
 .library {
-    background-color: rgb(34, 33, 54);
+    /* background-color: rgb(34, 33, 54); */
+    background: transparent;
     /* justify-content: space-between; */
     padding: 2% 0;
     height: max-content;
     text-align: center;
     position: relative;
     overflow: hidden;
+    display: none;
 }
 
 .heading {
     color: #fff;
-font-size: 2rem;
-margin-bottom: 2rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 
 .cardbody {
@@ -422,24 +458,27 @@ margin-bottom: 2rem;
     padding: 10px 0;
     position: relative;
 }
-.card:hover a{
+
+.card:hover a {
     display: flex;
 }
-.card:hover{
+
+.card:hover {
     background-color: #2e2a56;
 }
-.card:hover img{
-   transform: scale(0.9);
+
+.card:hover img {
+    transform: scale(0.9);
 }
 
 .card img {
     width: 180px;
     height: 140px;
     border-radius: 10px;
-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 
-.card a{
+.card a {
     position: absolute;
     background-color: rgb(255, 38, 0);
     height: 45px;
@@ -453,7 +492,8 @@ transition: all 0.3s ease;
     display: none;
     box-shadow: 1px 1px 10px rgb(255 38 0), -1px -1px 10px rgb(235, 230, 229);
 }
-.card a i{
+
+.card a i {
     font-size: 1.2rem;
     transition: all 0.5s ease;
     /* z-index: 1000; */
@@ -469,20 +509,22 @@ transition: all 0.3s ease;
     color: rgb(151, 151, 151);
     font-size: 1rem;
 }
-.row{
+
+.row {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
 }
-.searchBar{
+
+.searchBar {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     position: relative;
-    /* right: -150%; */
-    height: 100px;
-    border-radius: 10px;
+    right: -150%;
+    height: 200px;
+    border-radius: 12px;
     width: 60%;
     overflow: hidden;
     border: 2px solid black;
@@ -491,15 +533,17 @@ transition: all 0.3s ease;
     align-items: center;
     transition: all 0.5s ease;
     /* padding: 2% 0; */
-    border: 1px solid rebeccapurple;
+    /* border: 1px solid rebeccapurple; */
 }
-.searchBar input{
+
+.searchBar input {
     height: 100%;
     width: 90%;
     padding-left: 4%;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
-.searchBar i{
+
+.searchBar i {
     position: relative;
     text-align: center;
     text-align: center;
@@ -509,8 +553,9 @@ transition: all 0.3s ease;
     width: 10%;
     background-color: red;
     padding: 3% 0;
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
+
 @keyframes rotate {
     0% {
         transform: rotate(0deg);
@@ -546,12 +591,12 @@ transition: all 0.3s ease;
         align-items: center;
     }
 
-     .box {
+    .box {
         /* width: 45%; */
         height: 80vh;
     }
 
-     #box .songimg .mainimg {
+    #box .songimg .mainimg {
         margin: 3%;
         position: relative;
         height: 280px;
