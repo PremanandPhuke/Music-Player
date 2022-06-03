@@ -12,6 +12,7 @@ let homebutton= document.getElementById('homebutton');
 let librarybutton= document.getElementById('librarybutton');
 let home= document.getElementById('home');
 let library= document.getElementById('library');
+let gif= document.getElementById('gif')
 
 
 
@@ -151,12 +152,14 @@ masterplay.addEventListener('click', () => {
         masterplay.classList.add('fa-pause-circle')
         musicOn = true;
         rotateImg(musicOn);
+        gif.style.opacity='100';
     } else {
         audioElement.pause();
         masterplay.classList.add('fa-play-circle')
         masterplay.classList.remove('fa-pause-circle')
         musicOn = false;
         rotateImg(musicOn);
+        gif.style.opacity='0';
     }
 
 })
@@ -330,11 +333,14 @@ const activeBox =()=>{
         box.classList.add("activeBox")
         box.classList.remove("box")
         home.style.filter = "blur(5px)"
+        gif.style.display='none'
     }
     else{
         box.classList.remove("activeBox")
         box.classList.add("box")
         home.style.filter = "blur(0px)"
+        gif.style.display='flex'
+
     }
 }
 const searchSongs =()=>{
