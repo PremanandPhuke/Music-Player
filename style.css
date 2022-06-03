@@ -128,7 +128,7 @@ aside {
     z-index: 100;
     left: 50%;
     top: -150%;
-    transform: translate(-50%, -50%);
+    transform: translate(-52%, -70%);
 
 }
 
@@ -345,7 +345,7 @@ a {
     flex-direction: column;
     align-items: stretch;
     justify-content: space-around;
-    top: 21%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
