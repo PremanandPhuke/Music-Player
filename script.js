@@ -80,6 +80,7 @@ let songs = [{
 
 ]
 
+
 // adding all songs in the playlist
 let list = "";
 songs.map((song, index) => {
@@ -94,6 +95,9 @@ songs.map((song, index) => {
 
 })
 
+
+
+
 const div = document.getElementById("options");
 div.innerHTML = list
 
@@ -105,6 +109,7 @@ div.innerHTML = list
 //  changing the menu btn to cross btn
 
 const menuBtnClick = () => {
+    
     const aside = document.getElementById("aside");
     aside.style.top = "50%";
     document.body.style.backdropFilter = "blur(5px)";
