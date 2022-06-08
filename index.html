@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <!-- <section id="home" class="home"> -->
+
     <div class="navbar" id="navbar">
         <img src="./image/logo.png" alt="Spotify" class="logo">
         <ul class="navList">
@@ -20,18 +20,23 @@
                 <li><i class="fa-solid fa-house"></i>Home</li>
             </a>
             <!--activeNavlist -->
-            <a href="#library" onclick="searchSongs()"><li><i class="fa-solid fa-search"></i>Search </li></a>
+            <a href="#home" onclick="searchSongs()">
+                <li><i class="fa-solid fa-search"></i>Search </li>
+            </a>
             <a href="#library">
                 <li><i class="fa-solid fa-lines-leaning"></i>Your Library</li>
             </a><br>
-            <li><i class="fa-solid fa-square-plus"></i>Create Playlist </li>
-            <a href="likedsongs.html">
+            <a href="#createPly" onclick="fetchSongs()">
+                <li><i class="fa-solid fa-square-plus"></i>Create Playlist </li>
+            </a>
+            <a href="#likedSongs">
                 <li><i class="fa-solid fa-heart"></i>Liked Songs</li>
             </a>
         </ul>
-    </div><div class="row">
+    </div>
+    <div class="row" id="row">
         <!-- song playing container -->
-        <div class="box" id="box" align="center" >
+        <div class="box" id="box" align="center">
             <!-- up arrow button -->
             <div class="upIcon">
                 <i class="fa-solid fa-angle-up" onclick="activeBox()"></i>
@@ -62,6 +67,7 @@
         </div>
         <!-- home section starts -->
         <section class="home" id="home">
+
             <aside align="center" id="aside">
                 <div class="icon" align="left">
                     <i class="fa-solid fa-rectangle-xmark close-btn" id="close-btn" onclick="closeBtnClick()"></i>
@@ -74,6 +80,10 @@
 
             </aside>
             <div class="container" id="container">
+                <div class="searchBar" id="searchBar">
+                    <input type="text" placeholder="search songs here">
+                    <i class="fa-solid fa-search"></i>
+                </div>
                 <!-- playlists  -->
                 <div class="cardbody" id="cardbody">
 
@@ -138,12 +148,8 @@
                 </div>
 
         </section>
-        <!-- </section> -->
+        <!-- library section start -->
         <section class="library" id="library">
-            <div class="searchBar" id="searchBar">
-                <input type="text" placeholder="search songs here">
-                <i class="fa-solid fa-search"></i>
-            </div>
             <h1 class="heading">Your Playlists</h1>
             <div class="cardbody" id="cardbody">
                 <div class="card">
@@ -217,6 +223,91 @@
                 </div>
             </div>
         </section>
+        <!-- library section end -->
+
+        <!-- create-playlist section start -->
+        <section class="createPly" id="createPly">
+            <h1>Create New Playlist</h1>
+            <div class="form" id="form">
+                <label for="playlistName">Give your playlist a name </label>
+                <input type="text" class="playlistName" id="playlistName"
+                placeholder="Enter name of playlist ">
+                <div class="buttonFlex">
+                    <button class="cancelBtn">CANCEL</button>
+                    <button class="createBtn" style="color:rgb(255, 38, 0);">CREATE</button>
+                </div>
+            </div>
+        </section>
+        <!-- create-playlist section end -->
+
+        <!-- liked-songs section start -->
+        <section class="likedSongs" id="likedSongs">
+            <div class="likedSongContainer">
+                <div class="cardbody" id="cardbody">
+
+                    <div class="card">
+                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <img src="https://d2rd7etdn93tqb.cloudfront.net/wp-content/uploads/2022/03/spotify-playlist-cover-orange-headphones-032322.jpg"
+                            alt="" class="playlistimg">
+                        <p class="playlistname">Top 50 songs</p>
+                        <p class="followersNum">50,000 Followers</p>
+                    </div>
+                    <div class="card">
+                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <img src="https://d2rd7etdn93tqb.cloudfront.net/wp-content/uploads/2022/03/spotify-playlist-cover-orange-headphones-032322.jpg"
+                            alt="" class="playlistimg">
+                        <p class="playlistname">Top 50 songs</p>
+                        <p class="followersNum">50,000 Followers</p>
+                    </div>
+                    <div class="card">
+                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <img src="https://d2rd7etdn93tqb.cloudfront.net/wp-content/uploads/2022/03/spotify-playlist-cover-orange-headphones-032322.jpg"
+                            alt="" class="playlistimg">
+                        <p class="playlistname">Top 50 songs</p>
+                        <p class="followersNum">50,000 Followers</p>
+                    </div>
+                    <div class="card">
+                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <img src="https://i.pinimg.com/736x/3b/f8/bd/3bf8bd524236f7af4940bd4ff002477f.jpg" alt=""
+                            class="playlistimg">
+                        <p class="playlistname">Top 50 songs</p>
+                        <p class="followersNum">50,000 Followers</p>
+                    </div>
+                    <div class="card">
+                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <img src="https://i.pinimg.com/originals/9a/34/6c/9a346ce2b3c028e3bab04700a5adfa4a.png" alt=""
+                            class="playlistimg">
+                        <p class="playlistname">Top 50 songs</p>
+                        <p class="followersNum">50,000 Followers</p>
+                    </div>
+                    <div class="card">
+                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <img src="https://d2rd7etdn93tqb.cloudfront.net/wp-content/uploads/2022/03/spotify-playlist-cover-orange-headphones-032322.jpg"
+                            alt="" class="playlistimg">
+                        <p class="playlistname">Top 50 songs</p>
+                        <p class="followersNum">50,000 Followers</p>
+                    </div>
+                    <div class="card">
+                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <img src="https://i.pinimg.com/736x/3b/f8/bd/3bf8bd524236f7af4940bd4ff002477f.jpg" alt=""
+                            class="playlistimg">
+                        <p class="playlistname">Top 50 songs</p>
+                        <p class="followersNum">50,000 Followers</p>
+                    </div>
+                    <div class="card">
+                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <img src="https://i.pinimg.com/originals/9a/34/6c/9a346ce2b3c028e3bab04700a5adfa4a.png" alt=""
+                            class="playlistimg">
+                        <p class="playlistname">Top 50 songs</p>
+                        <p class="followersNum">50,000 Followers</p>
+                    </div>
+
+
+                </div>
+            </div>
+        </section>
+        <!-- liked-songs section end -->
+
     </div>
     <script src="script.js"></script>
 

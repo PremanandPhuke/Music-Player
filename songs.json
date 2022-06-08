@@ -3,52 +3,70 @@
         "SongName": "Agar Tum Sath Ho...",
         "filepath": "songs/1.mp3",
         "coverpath": "image/1.png",
-        "background": " linear-gradient(white, rgb(214, 123, 3))"
+        "background": "#fff",
+        "time": "3:59"
     },
     {
         "SongName": "Ye Raate Ye Mousam...",
         "filepath": "songs/2.mp3",
         "coverpath": "image/2.png",
-        "background": " linear-gradient(white, black)"
+        "background": " linear-gradient(white, rgb(230, 123, 3))",
+        "time": "4:50"
     },
     {
         "SongName": "Lagja Gale...",
         "filepath": "songs/3.mp3",
-        "coverpath": "image/3.png"
+        "coverpath": "image/3.png",
+        "background": " linear-gradient(rgb(237, 210, 100), rgb(154, 123, 3))",
+        "time": "6:32"
     },
     {
         "SongName": "Ashka Na Ho Naina...",
         "filepath": "songs/4.mp3",
-        "coverpath": "image/4.png"
+        "coverpath": "image/4.png",
+        "background": " linear-gradient(white, rgb(114, 123, 3))",
+        "time": "3:45"
     },
     {
         "SongName": "Shayad...",
         "filepath": "songs/5.mp3",
-        "coverpath": "image/5.png"
+        "coverpath": "image/5.png",
+        "background": " linear-gradient(white, rgb(414, 123, 3))",
+        "time": "4:10"
     },
     {
         "SongName": "Nacho Nacho...",
         "filepath": "songs/6.mp3",
-        "coverpath": "image/6.png"
+        "coverpath": "image/6.png",
+        "background": " linear-gradient(white, rgb(24, 123, 53))",
+        "time": "4:35"
     },
     {
         "SongName": "Zalima...",
         "filepath": "songs/7.mp3",
-        "coverpath": "image/7.png"
+        "coverpath": "image/7.png",
+        "background": " linear-gradient(#f5f5, rgb(254, 123, 13)) ",
+        "time": "3:55"
     },
     {
         "SongName": "Tera Yaar Hu Main...",
         "filepath": "songs/8.mp3",
-        "coverpath": "image/8.png"
+        "coverpath": "image/8.png",
+        "background": " linear-gradient(white, rgb(241, 123, 43)) ",
+        "time": "3:20"
     },
     {
         "SongName": "Hain Apna Dil To Awara...",
         "filepath": "songs/9.mp3",
-        "coverpath": "image/9.png"
+        "coverpath": "image/9.png",
+        "background": " linear-gradient(white, rgb(24, 123, 3))",
+        "time": "3:50"
     },
     {
         "SongName": "Mere Liye Tum Kafi Ho...",
         "filepath": "songs/10.mp3",
-        "coverpath": "image/10.png"
+        "coverpath": "image/10.png",
+        "background": " linear-gradient(white, rgb(214, 13, 3))",
+        "time": "4:10"
     }
 ]
