@@ -170,17 +170,20 @@ aside {
 
 .home button {
     width: 80%;
-    border: white;
-    color: black;
+    /* border: #eb5504; */
+    color: #fff;
     margin: 20px;
     padding: 10px;
+    border-radius: 10px;
+    background-color: #eb5504;
     cursor: pointer;
     align-items: center;
 }
 
 a {
-    color: black;
     text-decoration: none;
+    color: #fff;
+    font-weight: 700;
 }
 
 .songitem {
@@ -514,13 +517,14 @@ transition: all 0.3s ease;
     font-size: 1.5rem;
 }
 .createPly{
-    background-color: #9879b1;
+    background-color: #262444;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     padding-top: 2%;
     position: relative;
+    color: #fff;
 }
 .createPly h1{
     text-decoration: underline;
@@ -543,7 +547,7 @@ gap: 10%;
 }
 .createPly input{
     width: 60%;
-    background-color: #9879b1;
+    background-color: #262444;
     border: none;
     border-bottom: 4px solid rgb(255 38 0);
     padding-left: 5%;
@@ -552,6 +556,7 @@ gap: 10%;
     caret-color: red;
     font-weight: 500;
     letter-spacing: 1px;
+    color: #fff;
 }
 .createPly input:focus-visible{
     outline-width: 0px;
@@ -566,14 +571,15 @@ gap: 10%;
     margin-top: 5%;
 }
 .createPly button{
-    background-color: #9879b1;
+    background-color: #262444;
 border: none;
 font-size: 1.2rem;
 font-weight: 700;
 cursor: pointer;
+color: #fff;
 }
 .createPly button:hover {
- text-shadow: 2px 1px 5px #262444;
+ text-shadow: 2px 1px 5px #000000;
 }
 .likedSongs{
     background-color: #492244;

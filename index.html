@@ -20,8 +20,8 @@
                 <li><i class="fa-solid fa-house"></i>Home</li>
             </a>
             <!--activeNavlist -->
-            <a href="#home" onclick="searchSongs()">
-                <li><i class="fa-solid fa-search"></i>Search </li>
+            <a >
+                <li onclick="searchSongs()"><i class="fa-solid fa-search"></i>Search </li>
             </a>
             <a href="#library">
                 <li><i class="fa-solid fa-lines-leaning"></i>Your Library</li>
@@ -76,7 +76,7 @@
                 <div class="options " id="options" align="center">
                     <!-- adding songs using javascript -->
                 </div>
-                <button class="cpBtn"><a href="#">CREATE PAYLIST</a></button>
+                <button class="cpBtn"><a href="#createPly">CREATE PLAYLIST</a></button>
 
             </aside>
             <div class="container" id="container">
@@ -229,7 +229,7 @@
         <section class="createPly" id="createPly">
             <h1>Create New Playlist</h1>
             <div class="form" id="form">
-                <label for="playlistName">Give your playlist a name </label>
+                <label for="playlistName">Give your playlist a name : </label>
                 <input type="text" class="playlistName" id="playlistName"
                 placeholder="Enter name of playlist ">
                 <div class="buttonFlex">
