@@ -11,13 +11,31 @@ let mainsong = document.getElementById('mainsong');
 
 
 const fetchSongs = async() => {
-    const res = await fetch('./songs.json')
-    const data = await res.json()
-    console.log(data);
-    // adding all songs in the playlist
+    
+       // fetch the song playlist
+
+       const playlist = await fetch('./songApi/songsPlaylists.json')
+     const allPlaylist = await playlist.json()
+     let playlists = "";
+     allPlaylist.map((playlist)=>{
+           playlists +=`
+           <div class="card">
+           <a href=""><i class="fa-solid fa-play"></i></a>
+           <img src=${playlist.img}
+               alt="" class="playlistimg">
+           <p class="playlistname">${playlist.name}</p>
+           <p class="followersNum">${playlist.users} Followers</p>
+       </div>`
+     })
+
+     const playlistContainer = document.getElementById('cardbody');
+     playlistContainer.innerHTML = playlists
+    // fetch the songs
+
+    const res = await fetch('./songApi/songs.json')
+    const songs = await res.json()
     let list = "";
-    data.map((song, index) => {
-        console.log(song,index);
+    songs.map((song, index) => {
         list += ` <div class="songitem"    style="background:${song.background} ;">
     <img src=${song.coverpath} alt="agar tum sath ho">
     <span class="name">${song.SongName}</span>
@@ -30,7 +48,9 @@ const fetchSongs = async() => {
     })
 
     const div = document.getElementById("options");
-    div.innerHTML = list
+    div.innerHTML = list 
+
+ 
 }
 fetchSongs();
     // songitem.forEach((element, i) => {
