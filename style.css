@@ -453,7 +453,7 @@ a {
     align-items: center;
     justify-content: center;
     gap: 5px;
-    padding: 10px 2px;
+    padding: 10px 0px;
     position: relative;
 }
 
@@ -504,10 +504,7 @@ a {
     color: #000;
     font-size: 1.2rem;
     font-weight: 700;
-    width: 100%;
-    position: relative;
-    /* overflow: hidden; */
-    padding: 0 10px;
+ text-transform: uppercase;
 }
 .card:hover .playlistname {
     color: #fff;
