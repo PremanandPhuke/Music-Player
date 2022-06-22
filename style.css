@@ -290,7 +290,7 @@ a {
     background: linear-gradient(#fff, rgb(243, 156, 56));
     color: wheat;
     border-radius: 12px;
-    width: 60%;
+    width: 80%;
     height: 22px;
     transition: all 0.5s ease-in-out;
     z-index: 20;
