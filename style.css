@@ -455,6 +455,7 @@ a {
     gap: 5px;
     padding: 10px 0px;
     position: relative;
+    text-align: center;
 }
 
 .card:hover a {
@@ -502,7 +503,7 @@ a {
 }
 .playlistname {
     color: #000;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
  text-transform: uppercase;
 }
