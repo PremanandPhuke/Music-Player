@@ -20,9 +20,9 @@
                 <li><i class="fa-solid fa-house"></i>Home</li>
             </a>
             <!--activeNavlist -->
-            <a >
+            <!-- <a >
                 <li onclick="searchSongs()"><i class="fa-solid fa-search"></i>Search </li>
-            </a>
+            </a> -->
             <a href="#library">
                 <li><i class="fa-solid fa-lines-leaning"></i>Your Library</li>
             </a><br>
@@ -80,14 +80,14 @@
 
             </aside>
             <div class="container" id="container">
-                <div class="searchBar" id="searchBar">
-                    <input type="text" placeholder="search songs here">
+                <div class="searchBar" id="searchBar" onclick="searchSongs()">
+                    <input type="text" placeholder="search songs here"  >
                     <i class="fa-solid fa-search"></i>
                 </div>
                 <!-- playlists  -->
-                <div class="cardbody" id="cardbody">
+                <div class="homeCards" id="homeCards">
 
-                    <!-- <div class="card">
+                    <div class="card">
                         <a href=""><i class="fa-solid fa-play"></i></a>
                         <img src="https://d2rd7etdn93tqb.cloudfront.net/wp-content/uploads/2022/03/spotify-playlist-cover-orange-headphones-032322.jpg"
                             alt="" class="playlistimg">

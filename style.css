@@ -6,16 +6,19 @@ html {
     margin: 0;
     padding: 0;
 }
-::-webkit-scrollbar{
+
+::-webkit-scrollbar {
     display: none;
 }
 
-i{
+i {
     cursor: pointer;
 }
-i:hover{
+
+i:hover {
     transform: scale(1.2);
 }
+
 body {
     background: url(image/background1.png) no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -28,7 +31,7 @@ body {
     flex-wrap: nowrap;
     /* justify-content: flex-end; */
     transition: all 0.3s ease;
-gap: 0;
+    gap: 0;
 }
 
 .navbar {
@@ -98,13 +101,30 @@ section {
     flex-wrap: nowrap;
     align-items: center;
     box-sizing: border-box;
-   
+
 }
 
 .home {
     /* overflow: hidden; */
     justify-content: center;
     position: relative;
+    overflow: hidden;
+}
+
+.homeCards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 300px;
+    justify-content: flex-start;
+    overflow-x: scroll;
+    align-items: center;
+    position: relative;
+    width: 80vw;
+}
+
+.homeCards .card {
+    margin: 0px 10px;
 }
 
 aside {
@@ -234,15 +254,17 @@ a {
     color: rgb(255, 38, 0);
 }
 
-.container, .likedSongContainer{
+.container,
+.likedSongContainer {
     display: flex;
     width: 100%;
     height: 100vh;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
     flex-direction: column;
     transition: all 0.3s ease;
+    padding: 50px 0;
 }
 
 #box .songname h3 {
@@ -253,16 +275,17 @@ a {
 .activeBox .animation input {
     display: block;
 }
- .animation input {
+
+.animation input {
     width: 90%;
     padding: 10px 0;
     cursor: pointer;
     color: rgb(255, 4, 4);
     caret-color: coral;
-display: none;
+    display: none;
 }
 
- .box {
+.box {
     padding: 2% 1%;
     background: linear-gradient(#fff, rgb(243, 156, 56));
     color: wheat;
@@ -280,13 +303,17 @@ display: none;
     align-items: center;
     justify-content: space-around;
 }
-.box:hover .upIcon{
+
+.box:hover .upIcon {
     display: flex;
 }
-.activeBox:hover .downIcon{
+
+.activeBox:hover .downIcon {
     display: flex;
 }
-.upIcon , .downIcon{
+
+.upIcon,
+.downIcon {
     position: absolute;
     height: 30px;
     width: 40px;
@@ -302,6 +329,7 @@ display: none;
     justify-content: center;
     transition: all 0.3s ease-in;
 }
+
 /* .downIcon{
     position: absolute;
     height: 30px;
@@ -319,7 +347,7 @@ display: none;
     transition: all 0.3s ease-in;
 } */
 
- .activeBox {
+.activeBox {
     padding: 2%;
     background: linear-gradient(#fff, rgb(243, 156, 56));
     color: wheat;
@@ -336,11 +364,11 @@ display: none;
     justify-content: space-around;
     top: 12%;
     left: 50%;
-    transform: translate(-50%,-50%);
-} 
+    transform: translate(-50%, -50%);
+}
 
- .songimg .mainimg {
-    height:50px;
+.songimg .mainimg {
+    height: 50px;
     width: 50px;
     border-radius: 50%;
     /* padding: 20px 0; */
@@ -348,12 +376,13 @@ display: none;
     animation-iteration-count: infinite;
 
 }
+
 .activeBox .songimg .mainimg {
     height: 300px;
     width: 300px;
 }
 
- .songimg .gif {
+.songimg .gif {
     height: 200px;
     width: 200px;
     /* border-radius: 50%; */
@@ -398,8 +427,8 @@ display: none;
 
 .heading {
     color: #fff;
-font-size: 2rem;
-margin-bottom: 2rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
 }
 
 .cardbody {
@@ -412,7 +441,7 @@ margin-bottom: 2rem;
     margin-bottom: 6%;
 }
 
-.cardbody .card {
+.card {
     height: 200px;
     width: 200px;
     border-radius: 10px;
@@ -424,27 +453,33 @@ margin-bottom: 2rem;
     align-items: center;
     justify-content: center;
     gap: 5px;
-    padding: 10px 0;
+    padding: 10px 0px;
     position: relative;
 }
-.card:hover a{
+
+.card:hover a {
     display: flex;
 }
-.card:hover{
+
+.card:hover {
     background-color: #2e2a56;
 }
-.card:hover img{
-   transform: scale(0.9);
+
+.card:hover img {
+    transform: scale(0.9);
+    border-radius: 20%;
 }
 
 .card img {
     width: 180px;
     height: 140px;
     border-radius: 10px;
-transition: all 0.3s ease;
+    padding: 0 10px;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.card a{
+.card a {
     position: absolute;
     background-color: rgb(255, 38, 0);
     height: 45px;
@@ -456,9 +491,11 @@ transition: all 0.3s ease;
     bottom: 77px;
     right: 22px;
     display: none;
-    box-shadow: 1px 1px 10px rgb(255 38 0), -1px -1px 10px rgb(235, 230, 229);
+    box-shadow: 0px -5px 14px rgb(255 38 0), -1px -1px 0px rgb(235 230 229);
+
 }
-.card a i{
+
+.card a i {
     font-size: 1.2rem;
     transition: all 0.5s ease;
     /* z-index: 1000; */
@@ -473,7 +510,8 @@ transition: all 0.3s ease;
     color: rgb(151, 151, 151);
     font-size: 1rem;
 }
-.row{
+
+.row {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
@@ -482,15 +520,16 @@ transition: all 0.3s ease;
     position: relative;
     transition: all 0.3s ease;
 }
-.searchBar{
+
+.searchBar {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     position: relative;
-    top: -150%;
+    top: 0%;
     height: 50px;
     border-radius: 10px;
-    width: 80%;
+    width: 70%;
     overflow: hidden;
     border: 2px solid black;
     justify-content: flex-start;
@@ -498,13 +537,20 @@ transition: all 0.3s ease;
     transition: all 0.5s ease;
     z-index: 100;
 }
-.searchBar input{
+
+.searchBar input {
     height: 100%;
     width: 100%;
     padding-left: 4%;
     font-size: 1.5rem;
+    filter: opacity(0.3);
 }
-.searchBar i{
+
+.searchBar input:focus {
+    filter: opacity(1);
+}
+
+.searchBar i {
     position: relative;
     text-align: center;
     text-align: center;
@@ -516,7 +562,8 @@ transition: all 0.3s ease;
     padding: 3% 0;
     font-size: 1.5rem;
 }
-.createPly{
+
+.createPly {
     background-color: #262444;
     display: flex;
     flex-direction: column;
@@ -526,26 +573,30 @@ transition: all 0.3s ease;
     position: relative;
     color: #fff;
 }
-.createPly h1{
+
+.createPly h1 {
     text-decoration: underline;
     font-size: 2.2rem;
 }
-.createPly .form{
-position: relative;
-width: 50%;
-height: 50%;
-display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: flex-start;
-margin-top: 5%;
-gap: 10%;
+
+.createPly .form {
+    position: relative;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 5%;
+    gap: 10%;
 }
-.createPly label{
+
+.createPly label {
     font-size: 2rem;
     font-weight: 600;
 }
-.createPly input{
+
+.createPly input {
     width: 60%;
     background-color: #262444;
     border: none;
@@ -558,10 +609,12 @@ gap: 10%;
     letter-spacing: 1px;
     color: #fff;
 }
-.createPly input:focus-visible{
+
+.createPly input:focus-visible {
     outline-width: 0px;
 }
-.createPly .buttonFlex{
+
+.createPly .buttonFlex {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -570,18 +623,21 @@ gap: 10%;
     width: 60%;
     margin-top: 5%;
 }
-.createPly button{
+
+.createPly button {
     background-color: #262444;
-border: none;
-font-size: 1.2rem;
-font-weight: 700;
-cursor: pointer;
-color: #fff;
+    border: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: #fff;
 }
+
 .createPly button:hover {
- text-shadow: 2px 1px 5px #000000;
+    text-shadow: 2px 1px 5px #000000;
 }
-.likedSongs{
+
+.likedSongs {
     background-color: #492244;
 }
 
@@ -620,12 +676,12 @@ color: #fff;
         align-items: center;
     }
 
-     .box {
+    .box {
         /* width: 45%; */
         height: 80vh;
     }
 
-     #box .songimg .mainimg {
+    #box .songimg .mainimg {
         margin: 3%;
         position: relative;
         height: 280px;
