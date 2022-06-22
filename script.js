@@ -8,99 +8,66 @@ let songitem = Array.from(document.getElementsByClassName('songitem'));
 let imgEffect = document.getElementById("mainimg");
 let box = document.getElementsByClassName('box')
 let mainsong = document.getElementById('mainsong');
-let homebutton= document.getElementById('homebutton');
-let librarybutton= document.getElementById('librarybutton');
-let home= document.getElementById('home');
-let library= document.getElementById('library');
-let gif= document.getElementById('gif')
+let allSongsG 
+let download_music= document.getElementById('download_music');
 
 
 
-// const res = fetch("songs.json")
-// .then((response)=>{return response.json()})
-// .then((data) => {
-//     const song = new Set[data];
-//     console.log(song)
-// })
-// console.log(data)
-// console.log(response)
-let songs = [{
-    SongName: "Agar Tum Sath Ho...",
-    filepath: "songs/1.mp3",
-    coverpath: "image/1.png",
-    background: " linear-gradient(white, rgb(214, 123, 3))"
-},
-{
-    SongName: "Ye Raate Ye Mousam...",
-    filepath: "songs/2.mp3",
-    coverpath: "image/2.png",
-    background: " linear-gradient(white, black)"
-
-},
-{
-    SongName: "Lagja Gale...",
-    filepath: "songs/3.mp3",
-    coverpath: "image/3.png",
-},
-{
-    SongName: "Ashka Na Ho Naina...",
-    filepath: "songs/4.mp3",
-    coverpath: "image/4.png",
-},
-{
-    SongName: "Shayad...",
-    filepath: "songs/5.mp3",
-    coverpath: "image/5.png",
-},
-{
-    SongName: "Nacho Nacho...",
-    filepath: "songs/6.mp3",
-    coverpath: "image/6.png",
-},
-{
-    SongName: "Zalima...",
-    filepath: "songs/7.mp3",
-    coverpath: "image/7.png",
-},
-{
-    SongName: "Tera Yaar Hu Main...",
-    filepath: "songs/8.mp3",
-    coverpath: "image/8.png",
-},
-{
-    SongName: "Hain Apna Dil To Awara...",
-    filepath: "songs/9.mp3",
-    coverpath: "image/9.png",
-},
-{
-    SongName: "Mere Liye Tum Kafi Ho...",
-    filepath: "songs/10.mp3",
-    coverpath: "image/10.png",
-},
-
-]
-
-
-// adding all songs in the playlist
-let list = "";
-songs.map((song, index) => {
-    list += ` <div class="songitem">
-    <img src=${song.coverpath} alt="agar tum sath ho">
-    <span class="name">${song.SongName}</span>
-    <span class="songlistplay">
-        <span class="songTime">5:40</span>
-        <i class="far fa-play-circle songitemplay" id=${index}></i>
-    </span>
-</div>`
-
+download_music.addEventListener('click', ()=> {
+download_music.href= `songs/${songindex + 1}.mp3`;
+download_music.setAttribute('download', SongName);
+download_music.download=`songs/${songindex + 1}.mp3`;
+// alert("You Dont have Subscription....")
 })
 
+const fetchSongs = async () => {
+
+    // fetch the song playlist
+
+    const playlist = await fetch('./songApi/songsPlaylists.json')
+    const allPlaylist = await playlist.json()
+    let playlists = "";
+    allPlaylist.map((playlist) => {
+        playlists += `
+           <div class="card">
+           <a href=""><i class="fa-solid fa-play"></i></a>
+           <img src=${playlist.img}
+               alt="" class="playlistimg">
+           <p class="playlistname">${playlist.name}</p>
+           <p class="followersNum">${playlist.users} Followers</p>
+       </div>`
+    })
+
+    const playlistContainer = document.getElementById('cardbody');
+    // playlistContainer.innerHTML = playlists
+
+    // fetch the songs
+
+    const res = await fetch('./songApi/songs.json')
+    const fetchedSongs = await res.json()
+    allSongsG = fetchedSongs
+   
+    let list = "";
+     fetchedSongs.map((song,index) => {
+         list += `
+         <div class="songitem"    style="background:${song.background} ;">
+         <img src=${song.coverpath} alt="agar tum sath ho">
+            <span class="name">${song.SongName}</span>
+            <span class="songlistplay">
+                <span class="songTime">${song.time}</span>
+                <i class="far fa-play-circle songitemplay ${index}" onClick="rohit()"></i>
+          
+            </span>
+        </div>`
+    })
+          // onClick="makeAllplays(${index})"
+
+    const div = document.getElementById("options");
+    div.innerHTML = list
 
 
-
-const div = document.getElementById("options");
-div.innerHTML = list
-
+}
+fetchSongs();
 // songitem.forEach((element, i) => {
 //     element.getElementsByTagName("img")[0].src = songs[i].coverpath;
 //     element.getElementsByClassName("name")[0].innerHTML = songs[i].SongName;
@@ -109,19 +76,18 @@ div.innerHTML = list
 //  changing the menu btn to cross btn
 
 const menuBtnClick = () => {
-    
     const aside = document.getElementById("aside");
     aside.style.top = "50%";
     document.body.style.backdropFilter = "blur(5px)";
     container.style.filter = "blur(4px)";
-    console.log(window.pageYOffset)
+    // console.log(window.pageYOffset)
 
- if(window.pageYOffset>0){
-const ele =   document.getElementById("cardbody");
-window.scroll(0,0)
-   console.log(document.body.scrollTop>=0)
+    if (window.pageYOffset > 0) {
+        const ele = document.getElementById("cardbody");
+        window.scroll(0, 0)
+        // console.log(document.body.scrollTop >= 0)
 
- }
+    }
 }
 
 //  close the playlist div
@@ -131,7 +97,7 @@ const closeBtnClick = () => {
     aside.style.top = "-120%";
     document.body.style.backdropFilter = "blur(1px)";
     container.style.filter = "blur(0px)";
-  
+
 }
 //  like btn animation 
 const likeBtn = () => {
@@ -157,14 +123,12 @@ masterplay.addEventListener('click', () => {
         masterplay.classList.add('fa-pause-circle')
         musicOn = true;
         rotateImg(musicOn);
-        gif.style.opacity='100';
     } else {
         audioElement.pause();
         masterplay.classList.add('fa-play-circle')
         masterplay.classList.remove('fa-pause-circle')
         musicOn = false;
         rotateImg(musicOn);
-        gif.style.opacity='0';
     }
 
 })
@@ -213,13 +177,15 @@ myprogressbar.addEventListener('change', () => {
     audioElement.currentTime = (myprogressbar.value * audioElement.duration) / 100;
 })
 
-const makeAllplays = () => {
+const makeAllplays = (index) => {
+    // console.log(index);
     Array.from(document.getElementsByClassName("songitemplay")).forEach((element) => {
-        element.addEventListener('click', (ele)=>{
-            console.log(ele)
+        // console.log(element)
+        element.addEventListener('click', (ele) => {
+            // console.log(ele.target)
         })
 
-     if (audioElement.paused || audioElement.currentTime <= 0) {
+        if (audioElement.paused || audioElement.currentTime <= 0) {
             audioElement.play();
             masterplay.classList.remove('fa-play-circle')
             masterplay.classList.add('fa-pause-circle')
@@ -234,10 +200,12 @@ const makeAllplays = () => {
         }
     })
 }
+const rohit = ()=>{
+
 Array.from(document.getElementsByClassName("songitemplay")).forEach((element) => {
     element.addEventListener('click', (e) => {
-      
-           e.target.classList.contains("fa-pause-circle")?(e.target.classList.add("fa-play-circle"),e.target.classList.remove("fa-pause-circle")):(e.target.classList.remove("fa-play-circle"),e.target.classList.add("fa-pause-circle"))
+        console.log(element);
+        e.target.classList.contains("fa-pause-circle") ? (e.target.classList.add("fa-play-circle"), e.target.classList.remove("fa-pause-circle")) : (e.target.classList.remove("fa-play-circle"), e.target.classList.add("fa-pause-circle"))
 
         makeAllplays();
         songindex = parseInt(e.target.id);
@@ -250,6 +218,7 @@ Array.from(document.getElementsByClassName("songitemplay")).forEach((element) =>
         masterplay.classList.add("fa-pause-circle")
         mainimg.src = `image/${songindex + 1}.png`;
         mainsong.innerHTML = songs[songindex].SongName
+       
         // box.style.background = `${}`
 
         if (audioElement.paused || audioElement.currentTime <= 0) {
@@ -268,6 +237,7 @@ Array.from(document.getElementsByClassName("songitemplay")).forEach((element) =>
 
     })
 })
+}
 
 document.getElementById('next').addEventListener('click', () => {
     if (songindex >= 9) {
@@ -329,60 +299,41 @@ document.getElementById('previous').addEventListener('click', () => {
 
 })
 // animation of main box 
-const activeBox =()=>{
-    window.scroll(0,0);
+const activeBox = () => {
+    // window.scroll(0,0);
     const box = document.getElementById("box");
     const home = document.getElementById("home");
-  
-    if(box.classList.contains("box")){
+    const row = document.getElementById("row");
+
+    if (box.classList.contains("box")) {
+        window.scroll(0, 0)
         box.classList.add("activeBox")
         box.classList.remove("box")
         home.style.filter = "blur(5px)"
-        gif.style.display='none'
+        row.style.top = "-10px";
+
     }
-    else{
+    else {
         box.classList.remove("activeBox")
         box.classList.add("box")
-        home.style.filter = "blur(0px)"
-        gif.style.display='flex'
+        home.style.filter = "blur(0px)";
+        row.style.top = "-73px";
 
     }
 }
-const searchSongs =()=>{
-    const searchBar = document.getElementById("searchBar");
-    if(searchBar.style.right == "-150%"){
-    searchBar.style.right = "0%";
-    }
-    else{
-        searchBar.style.right = "-150%"
-    }
+
+//  search songs 
+
+const searchSongs = () => {
+  
+  allSongsG.forEach((song)=>{
+   console.log(song.SongName)
+
+
+  })
+    
 }
 // animated gif remaining
 
 
-//for home p
-homebutton.addEventListener('click', ()=>{
-    if(home.style.display='none'){
-        home.style.display='flex';
-        library.style.display='none';
-        
-    }
-    else{
-        console.log('cant work');
-    }
 
-    
-})
-
-//for home p
-librarybutton.addEventListener('click', ()=>{
-    if(library.style.display='none'){
-        library.style.display='flex';
-        home.style.display='none';
-       
-    }
-    else{
-        console.log('cant work');
-    }
-    
-})
