@@ -8,7 +8,7 @@ let songitem = Array.from(document.getElementsByClassName('songitem'));
 let imgEffect = document.getElementById("mainimg");
 let box = document.getElementsByClassName('box')
 let mainsong = document.getElementById('mainsong');
-let allSongsG 
+let allSongsG = []
 
 
 const fetchSongs = async () => {
@@ -37,7 +37,7 @@ const fetchSongs = async () => {
     const res = await fetch('./songApi/songs.json')
     const fetchedSongs = await res.json()
     allSongsG = fetchedSongs
-   
+   console.log(allSongsG)
     let list = "";
      fetchedSongs.map((song,index) => {
          list += `
@@ -315,14 +315,34 @@ const activeBox = () => {
 //  search songs 
 
 const searchSongs = () => {
-  
-  allSongsG.forEach((song)=>{
-   console.log(song.SongName)
+      let li= allSongsG
+      const input = document.getElementById('input');
+      const showDiv = document.getElementById('homeCards');
+      let list = ""
+            // input.addEventListener('keyup',(e)=>{
+                   let input_value = input.value.toUpperCase();
 
-
-  })
-    
+          for (i = 0; i < li.length; i++) { 
+            if (!li[i].SongName.toUpperCase().includes(input_value)) {
+                // li[i].style.display="none";
+                // list += `<h1>no any song found related search</h1>`
+            }
+            else {
+                // li[i].style.display="list-item";        
+                console.log(li[i]);  
+                list +=`<div class="card">
+                <a href=""><i class="fa-solid fa-play"></i></a>
+                <img src=${li[i].coverpath}
+                    alt="" class="playlistimg">
+                <p class="playlistname">${li[i].SongName}</p>
+                <p class="followersNum">${li[i].time}</p>
+            </div>`       
+            }
+        }
+        showDiv.innerHTML=list
+// })
 }
+
 // animated gif remaining
 
 
