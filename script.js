@@ -9,7 +9,14 @@ let imgEffect = document.getElementById("mainimg");
 let box = document.getElementsByClassName('box')
 let mainsong = document.getElementById('mainsong');
 let allSongsG = []
+let download_music= document.getElementById('download_music');
 
+download_music.addEventListener('click', ()=> {
+    download_music.href= `songs/${songindex + 1}.mp3`;
+    download_music.setAttribute('download', SongName);
+    download_music.download=`songs/${songindex + 1}.mp3`;
+    // alert("You Dont have Subscription....")
+    })
 
 const fetchSongs = async () => {
 
