@@ -455,6 +455,7 @@ a {
     gap: 5px;
     padding: 10px 2px;
     position: relative;
+    text-align: center;
 }
 
 .card:hover a {
