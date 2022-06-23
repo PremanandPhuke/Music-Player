@@ -56,9 +56,18 @@ body {
 
 .navbar .logo {
     height: 40px;
-    /* border-radius: 50%; */
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    height: 50px;
 }
 
+.logo img{
+    width: 50px;
+}
 .navbar .navList {
     display: flex;
     flex-direction: column;
@@ -290,7 +299,7 @@ a {
     background: linear-gradient(#fff, rgb(243, 156, 56));
     color: wheat;
     border-radius: 12px;
-    width: 80%;
+    width: 60%;
     height: 22px;
     transition: all 0.5s ease-in-out;
     z-index: 20;
@@ -453,7 +462,7 @@ a {
     align-items: center;
     justify-content: center;
     gap: 5px;
-    padding: 10px 2px;
+    padding: 10px 0px;
     position: relative;
     text-align: center;
 }
@@ -503,12 +512,9 @@ a {
 }
 .playlistname {
     color: #000;
-    font-size: 1.2rem;
+    font-size: 1rem;
     font-weight: 700;
-    width: 100%;
-    position: relative;
-    /* overflow: hidden; */
-    padding: 0 10px;
+ text-transform: uppercase;
 }
 .card:hover .playlistname {
     color: #fff;
