@@ -14,7 +14,12 @@
 <body>
 
     <div class="navbar" id="navbar">
-        <img src="./image/logo.png" alt="Spotify" class="logo">
+        <!-- <img src="./image/logo.png" alt="Spotify" class="logo">
+         -->
+         <div class="logo">
+             <img src="./image/logo.png">
+             <h1 class="logoName">Musify</h1>
+         </div>
         <ul class="navList">
             <a href="#home">
                 <li><i class="fa-solid fa-house"></i>Home</li>
@@ -58,6 +63,9 @@
 
             <div class="playpause">
                 <!-- <i class="fa-solid fa-heart"></i> -->
+                <a href="" id="download_music" class="download_music" download><i
+                    class="fa-solid fa-cloud-arrow-down"></i></a>
+
                 <i class="fa-regular fa-heart" id="likeBtn" onclick="likeBtn()"></i>
                 <i class="fas fa-2x fa-step-backward" id="previous"></i>
                 <i id="masterplay" class="far fa-2x fa-play-circle"></i>
@@ -86,52 +94,52 @@
                 </div>
                 <!-- playlists  -->
                 <div class="homeCards_main" id="homeCards_main">
-                    <h1 style="font-size: 1.8rem;line-height: 2px; color: #fff;">YOUR SONGS :</h1>
+                    <h1 style="font-size: 1.8rem;line-height: 2px; color: #fff;" id="searchSongHeading">BEST SONGS :</h1>
                     <div class="homeCards" id="homeCards">
-                    <div class="card">
-                        <a href=""><i class="fa-solid fa-play"></i></a>
+                    <div class="card searchCard">
+                        <a href="#"><i class="fa-solid fa-play" onclick="menuBtnClick()"></i></a>
                         <img src="https://d2rd7etdn93tqb.cloudfront.net/wp-content/uploads/2022/03/spotify-playlist-cover-orange-headphones-032322.jpg"
                             alt="" class="playlistimg">
                         <p class="playlistname">Top 50 songs</p>
                         <p class="followersNum">50,000 Followers</p>
                     </div>
                     <div class="card">
-                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <a href="#"><i class="fa-solid fa-play" onclick="menuBtnClick()"></i></a>
                         <img src="https://d2rd7etdn93tqb.cloudfront.net/wp-content/uploads/2022/03/spotify-playlist-cover-orange-headphones-032322.jpg"
                             alt="" class="playlistimg">
                         <p class="playlistname">best 50 songs</p>
                         <p class="followersNum">50,000 Followers</p>
                     </div>
                     <div class="card">
-                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <a href="#"><i class="fa-solid fa-play" onclick="menuBtnClick()"></i></a>
                         <img src="https://d2rd7etdn93tqb.cloudfront.net/wp-content/uploads/2022/03/spotify-playlist-cover-orange-headphones-032322.jpg"
                             alt="" class="playlistimg">
                         <p class="playlistname">hit 50 songs</p>
                         <p class="followersNum">50,000 Followers</p>
                     </div>
                     <div class="card">
-                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <a href="#"><i class="fa-solid fa-play" onclick="menuBtnClick()"></i></a>
                         <img src="https://i.pinimg.com/736x/3b/f8/bd/3bf8bd524236f7af4940bd4ff002477f.jpg" alt=""
                             class="playlistimg">
                         <p class="playlistname">all time best</p>
                         <p class="followersNum">50,000 Followers</p>
                     </div>
                     <div class="card">
-                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <a href="#"><i class="fa-solid fa-play" onclick="menuBtnClick()"></i></a>
                         <img src="https://i.pinimg.com/originals/9a/34/6c/9a346ce2b3c028e3bab04700a5adfa4a.png" alt=""
                             class="playlistimg">
                         <p class="playlistname">19's best songs</p>
                         <p class="followersNum">50,000 Followers</p>
                     </div>
                     <div class="card">
-                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <a href="#"><i class="fa-solid fa-play" onclick="menuBtnClick()"></i></a>
                         <img src="https://d2rd7etdn93tqb.cloudfront.net/wp-content/uploads/2022/03/spotify-playlist-cover-orange-headphones-032322.jpg"
                             alt="" class="playlistimg">
                         <p class="playlistname">rap 50 songs</p>
                         <p class="followersNum">50,000 Followers</p>
                     </div>
                     <div class="card">
-                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <a href="#"><i class="fa-solid fa-play" onclick="menuBtnClick()"></i></a>
                         <img src="https://i.pinimg.com/736x/3b/f8/bd/3bf8bd524236f7af4940bd4ff002477f.jpg" alt=""
                             class="playlistimg">
                         <p class="playlistname">hip hop 50 songs</p>
@@ -139,7 +147,7 @@
                         
                     </div>
                     <div class="card">
-                        <a href=""><i class="fa-solid fa-play"></i></a>
+                        <a href="#"><i class="fa-solid fa-play" onclick="menuBtnClick()"></i></a>
                         <img src="https://i.pinimg.com/originals/9a/34/6c/9a346ce2b3c028e3bab04700a5adfa4a.png" alt=""
                             class="playlistimg">
                         <p class="playlistname">super hit 50 songs</p>
@@ -154,7 +162,7 @@
         <section class="library" id="library">
             <h1 class="heading">Your Playlists</h1>
             <div class="cardbody" id="cardbody">
-                <div class="card">
+                <!-- <div class="card">
                     <a href="#home" onclick=" makeAllplays()"><i class="fa-solid fa-play"></i></a>
                     <img src="https://i.pinimg.com/originals/8d/64/e9/8d64e974c73f8cb168958407dc79eb17.jpg" alt=""
                         class="playlistimg">
@@ -222,7 +230,7 @@
                         alt="" class="playlistimg">
                     <p class="playlistname">Top 50 songs</p>
                     <p class="followersNum">50,000 Followers</p>
-                </div>
+                </div> -->
             </div>
         </section>
         <!-- library section end -->

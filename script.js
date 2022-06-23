@@ -9,7 +9,14 @@ let imgEffect = document.getElementById("mainimg");
 let box = document.getElementsByClassName('box')
 let mainsong = document.getElementById('mainsong');
 let allSongsG = []
+let download_music = document.getElementById('download_music');
 
+download_music.addEventListener('click', () => {
+    download_music.href = `songs/${songindex + 1}.mp3`;
+    download_music.setAttribute('download', SongName);
+    download_music.download = `songs/${songindex + 1}.mp3`;
+    // alert("You Dont have Subscription....")
+})
 
 const fetchSongs = async () => {
 
@@ -21,7 +28,7 @@ const fetchSongs = async () => {
     allPlaylist.map((playlist) => {
         playlists += `
            <div class="card">
-           <a href=""><i class="fa-solid fa-play"></i></a>
+        <a href="#"><i class="fa-solid fa-play" onclick="menuBtnClick()" ></i></a>
            <img src=${playlist.img}
                alt="" class="playlistimg">
            <p class="playlistname">${playlist.name}</p>
@@ -30,35 +37,40 @@ const fetchSongs = async () => {
     })
 
     const playlistContainer = document.getElementById('cardbody');
-    // playlistContainer.innerHTML = playlists
+    playlistContainer.innerHTML = playlists
+
 
     // fetch the songs
 
     const res = await fetch('./songApi/songs.json')
     const fetchedSongs = await res.json()
     allSongsG = fetchedSongs
-   console.log(allSongsG)
+    console.log(allSongsG)
     let list = "";
-     fetchedSongs.map((song,index) => {
-         list += `
+    fetchedSongs.map((song, index) => {
+        list += `
          <div class="songitem"    style="background:${song.background} ;">
          <img src=${song.coverpath} alt="agar tum sath ho">
             <span class="name">${song.SongName}</span>
             <span class="songlistplay">
                 <span class="songTime">${song.time}</span>
-                <i class="far fa-play-circle songitemplay ${index}" onClick="rohit()"></i>
+                <i class="far fa-play-circle songitemplay" onclick="makeAllplays()"></i>
           
             </span>
         </div>`
     })
-          // onClick="makeAllplays(${index})"
+    // onClick="makeAllplays(${index})"
 
     const div = document.getElementById("options");
     div.innerHTML = list
 
+    const likedSongs = await fetch('./songApi/likedSongs.json')
+    const lSongs = await likedSongs.json();
+    console.log(lSongs)
 
 }
 fetchSongs();
+
 // songitem.forEach((element, i) => {
 //     element.getElementsByTagName("img")[0].src = songs[i].coverpath;
 //     element.getElementsByClassName("name")[0].innerHTML = songs[i].SongName;
@@ -82,6 +94,7 @@ const menuBtnClick = () => {
 }
 
 //  close the playlist div
+
 const closeBtnClick = () => {
     const aside = document.getElementById("aside");
     const container = document.getElementById("container");
@@ -90,7 +103,9 @@ const closeBtnClick = () => {
     container.style.filter = "blur(0px)";
 
 }
+
 //  like btn animation 
+
 const likeBtn = () => {
     const likebtn = document.getElementById("likeBtn");
     if (likebtn.classList.contains("fa-regular")) {
@@ -104,10 +119,40 @@ const likeBtn = () => {
     }
 }
 
+// song playing function
+
+// const makeAllplays = (index) => {
+//     // console.log(index); 
+//     Array.from(document.getElementsByClassName("songitemplay")).forEach((element) => {
+//         // console.log(element) 
+//         element.addEventListener('click', (ele) => {
+
+//             if (audioElement.paused || audioElement.currentTime <= 0) {
+//                 audioElement.play();
+//                 masterplay.classList.remove('fa-play-circle')
+//                 masterplay.classList.add('fa-pause-circle')
+//                 musicOn = true;
+//                 rotateImg(musicOn);
+//                 mainimg.src = `image/${songindex + 1}.png`;
+//         mainsong.innerHTML = songs[songindex].SongName;
+//         audioElement.src = `songs/${songindex + 1}.mp3`;
+
+
+                
+//             } else {
+//                 audioElement.pause();
+//                 masterplay.classList.add('fa-play-circle')
+//                 masterplay.classList.remove('fa-pause-circle')
+//                 musicOn = false;
+//                 rotateImg(musicOn);
+//             }
+
+//         })
+//     })
+// }
+//  condition for play pause button
 
 masterplay.addEventListener('click', () => {
-
-    //  condition for play pause button
     if (audioElement.paused || audioElement.currentTime <= 0) {
         audioElement.play();
         masterplay.classList.remove('fa-play-circle')
@@ -123,25 +168,52 @@ masterplay.addEventListener('click', () => {
     }
 
 })
+const makeAllplays = () => {
+Array.from(document.getElementsByClassName("songitemplay")).forEach((element) => {
+    element.addEventListener('click', (e) => {
+        console.log(e);
+        if (e.target.classList.contains("fa-pause-circle")) {
+            e.target.classList.add("fa-play-circle")
+            e.target.classList.remove("fa-pause-circle")
+            console.log("ok");
+        }
+        else {
+            e.target.classList.remove("fa-play-circle");
+            e.target.classList.add("fa-pause-circle")
+            console.log("ok");
+        }
+        makeAllplays();
+        songindex = parseInt(e.target.id);
+        audioElement.src = `songs/${songindex + 1}.mp3`;
+        audioElement.currentTime = 0;
+        audioElement.play();
+        masterplay.classList.remove("fa-play-circle")
+        masterplay.classList.add("fa-pause-circle")
+        mainimg.src = `image/${songindex + 1}.png`;
+        mainsong.innerHTML = songs[songindex + 1].SongName
+    
 
-// const playpausegame= () =>{
-//     if (audioElement.paused || audioElement.currentTime <= 0) {
-//         audioElement.play();
-//         masterplay.classList.remove('fa-play-circle')
-//         masterplay.classList.add('fa-pause-circle')
-//         musicOn = true;
-//         rotateImg(musicOn);
-//     } else {
-//         audioElement.pause();
-//         masterplay.classList.add('fa-play-circle')
-//         masterplay.classList.remove('fa-pause-circle')
-//         musicOn = false;
-//         rotateImg(musicOn);
-//     }
-// }
+        if (audioElement.paused || audioElement.currentTime <= 0) {
+            audioElement.play();
+            masterplay.classList.remove('fa-play-circle')
+            masterplay.classList.add('fa-pause-circle')
+            musicOn = true;
+            rotateImg(musicOn);
+        } else {
+            audioElement.pause();
+            masterplay.classList.add('fa-play-circle')
+            masterplay.classList.remove('fa-pause-circle')
+            musicOn = false;
+            rotateImg(musicOn);
+        }
+
+    })
+})
+}
+
+//  img rotate function
 
 const rotateImg = (musicOn) => {
-    //   condition for img rotate
 
     if (musicOn == false) {
         imgEffect.style.animationPlayState = "paused"
@@ -164,70 +236,14 @@ audioElement.addEventListener('timeupdate', () => {
     }
 })
 
+// change position of progress bar
+
 myprogressbar.addEventListener('change', () => {
     audioElement.currentTime = (myprogressbar.value * audioElement.duration) / 100;
 })
 
-const makeAllplays = (index) => {
-    // console.log(index);
-    Array.from(document.getElementsByClassName("songitemplay")).forEach((element) => {
-        // console.log(element)
-        element.addEventListener('click', (ele) => {
-            // console.log(ele.target)
-        })
 
-        if (audioElement.paused || audioElement.currentTime <= 0) {
-            audioElement.play();
-            masterplay.classList.remove('fa-play-circle')
-            masterplay.classList.add('fa-pause-circle')
-            musicOn = true;
-            rotateImg(musicOn);
-        } else {
-            audioElement.pause();
-            masterplay.classList.add('fa-play-circle')
-            masterplay.classList.remove('fa-pause-circle')
-            musicOn = false;
-            rotateImg(musicOn);
-        }
-    })
-}
-const rohit = ()=>{
-
-Array.from(document.getElementsByClassName("songitemplay")).forEach((element) => {
-    element.addEventListener('click', (e) => {
-        console.log(element);
-        e.target.classList.contains("fa-pause-circle") ? (e.target.classList.add("fa-play-circle"), e.target.classList.remove("fa-pause-circle")) : (e.target.classList.remove("fa-play-circle"), e.target.classList.add("fa-pause-circle"))
-
-        makeAllplays();
-        songindex = parseInt(e.target.id);
-        // e.target.classList.remove("fa-play-circle");
-        // e.target.classList.add("fa-pause-circle");
-        audioElement.src = `songs/${songindex + 1}.mp3`;
-        audioElement.currentTime = 0;
-        audioElement.play();
-        masterplay.classList.remove("fa-play-circle")
-        masterplay.classList.add("fa-pause-circle")
-        mainimg.src = `image/${songindex + 1}.png`;
-        mainsong.innerHTML = songs[songindex].SongName
-        // box.style.background = `${}`
-
-        if (audioElement.paused || audioElement.currentTime <= 0) {
-            audioElement.play();
-            masterplay.classList.remove('fa-play-circle')
-            masterplay.classList.add('fa-pause-circle')
-            musicOn = true;
-            rotateImg(musicOn);
-        } else {
-            audioElement.pause();
-            masterplay.classList.add('fa-play-circle')
-            masterplay.classList.remove('fa-pause-circle')
-            musicOn = false;
-            rotateImg(musicOn);
-        }
-
-    })
-})
-}
+//  play next song 
 
 document.getElementById('next').addEventListener('click', () => {
     if (songindex >= 9) {
@@ -241,7 +257,7 @@ document.getElementById('next').addEventListener('click', () => {
     masterplay.classList.remove("fa-play-circle")
     masterplay.classList.add("fa-pause-circle")
     mainimg.src = `image/${songindex + 1}.png`;
-    mainsong.innerHTML = songs[songindex].SongName
+    mainsong.innerHTML = songs[songindex + 1].SongName
 
     if (audioElement.paused || audioElement.currentTime <= 0) {
         audioElement.play();
@@ -257,6 +273,8 @@ document.getElementById('next').addEventListener('click', () => {
         rotateImg(musicOn);
     }
 })
+
+// play previous song
 
 document.getElementById('previous').addEventListener('click', () => {
     if (songindex <= 0) {
@@ -288,9 +306,10 @@ document.getElementById('previous').addEventListener('click', () => {
     }
 
 })
+
 // animation of main box 
+
 const activeBox = () => {
-    // window.scroll(0,0);
     const box = document.getElementById("box");
     const home = document.getElementById("home");
     const row = document.getElementById("row");
@@ -315,34 +334,27 @@ const activeBox = () => {
 //  search songs 
 
 const searchSongs = () => {
-      let li= allSongsG
-      const input = document.getElementById('input');
-      const showDiv = document.getElementById('homeCards');
-      let list = ""
-            // input.addEventListener('keyup',(e)=>{
-                   let input_value = input.value.toUpperCase();
+    let li = allSongsG
+    const input = document.getElementById('input');
+    document.getElementById('searchSongHeading').innerText = "SEARCHED SONGS :"
+    const showDiv = document.getElementById('homeCards');
+    let list = ""
+    let input_value = input.value.toUpperCase();
 
-          for (i = 0; i < li.length; i++) { 
-            if (!li[i].SongName.toUpperCase().includes(input_value)) {
-                // li[i].style.display="none";
-                // list += `<h1>no any song found related search</h1>`
-            }
-            else {
-                // li[i].style.display="list-item";        
-                console.log(li[i]);  
-                list +=`<div class="card">
-                <a href=""><i class="fa-solid fa-play"></i></a>
+    for (i = 0; i < li.length; i++) {
+        if (li[i].SongName.toUpperCase().includes(input_value)) {
+            list += `<div class="card searchCard">
+                <a href="#"><i class="fa-solid fa-play" onclick="menuBtnClick()" ></i></a>
                 <img src=${li[i].coverpath}
-                    alt="" class="playlistimg">
+                alt="" class="playlistimg">
                 <p class="playlistname">${li[i].SongName}</p>
                 <p class="followersNum">${li[i].time}</p>
-            </div>`       
-            }
+                </div>`
         }
-        showDiv.innerHTML=list
-// })
+        showDiv.innerHTML = list
+        // })
+    }
 }
-
 // animated gif remaining
 
 
