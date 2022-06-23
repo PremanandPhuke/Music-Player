@@ -68,6 +68,10 @@ body {
 .logo img{
     width: 50px;
 }
+.logo .logoName{
+    font-family: cursive;
+    letter-spacing: 2px;
+}
 .navbar .navList {
     display: flex;
     flex-direction: column;
