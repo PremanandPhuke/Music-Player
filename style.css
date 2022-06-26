@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
+
 html {
     scroll-behavior: smooth;
 }
@@ -67,6 +69,10 @@ body {
 
 .logo img{
     width: 50px;
+}
+.logo .logoName{
+    font-family: cursive;
+    letter-spacing: 2px;
 }
 .navbar .navList {
     display: flex;
@@ -425,7 +431,7 @@ a {
 }
 
 .library {
-    background-color: rgb(34, 33, 54);
+    /* background-color: rgb(34, 33, 54); */
     /* justify-content: space-between; */
     padding: 2% 0;
     height: max-content;
@@ -578,7 +584,7 @@ a {
 }
 
 .createPly {
-    background-color: #262444;
+    /* background-color: #262444; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -589,11 +595,15 @@ a {
 }
 
 .createPly h1 {
-    text-decoration: underline;
+    /* text-decoration: underline; */
     font-size: 2.2rem;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .createPly .form {
+    padding: 2rem 1rem;
+    border-radius: 20px;
+    background-color: #286393;
     position: relative;
     width: 50%;
     height: 50%;
@@ -612,7 +622,7 @@ a {
 
 .createPly input {
     width: 60%;
-    background-color: #262444;
+    background-color: #286393;
     border: none;
     border-bottom: 4px solid rgb(255 38 0);
     padding-left: 5%;
@@ -639,7 +649,8 @@ a {
 }
 
 .createPly button {
-    background-color: #262444;
+    /* background-color: #262444; */
+    background-color: #286393;
     border: none;
     font-size: 1.2rem;
     font-weight: 700;
@@ -651,9 +662,7 @@ a {
     text-shadow: 2px 1px 5px #000000;
 }
 
-.likedSongs {
-    background-color: #492244;
-}
+
 
 @keyframes rotate {
     0% {
