@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/b9b537f465.js" crossorigin="anonymous"></script>
-    <title>Spotify-Clone</title>
+    <title>Musify: Let the music take you away...</title>
 
 </head>
 
@@ -82,7 +82,97 @@
                 </div>
                 <h1>Best Collection</h1>
                 <div class="options " id="options" align="center">
-                    <!-- adding songs using javascript -->
+                  
+                    <div class="songitem"    style="background:#fff ;">
+                        <img src=image/1.png alt="agar tum sath ho">
+                           <span class="name">Agar Tum Sath Ho...</span>
+                           <span class="songlistplay">
+                               <span class="songTime">3:59</span>
+                               <i class="far fa-play-circle songitemplay" id="1"></i>
+                         
+                           </span>
+                       </div>
+                        <div class="songitem"    style="background: linear-gradient(white, rgb(230, 123, 3)) ;">
+                        <img src=image/2.png alt="agar tum sath ho">
+                           <span class="name">Ye Raate Ye Mousam...</span>
+                           <span class="songlistplay">
+                               <span class="songTime">4:50</span>
+                               <i class="far fa-play-circle songitemplay" id="2"></i>
+                         
+                           </span>
+                       </div>
+                        <div class="songitem"    style="background: linear-gradient(rgb(237, 210, 100), rgb(154, 123, 3)) ;">
+                        <img src=image/3.png alt="agar tum sath ho">
+                           <span class="name">Lagja Gale...</span>
+                           <span class="songlistplay">
+                               <span class="songTime">6:32</span>
+                               <i class="far fa-play-circle songitemplay" id="3"></i>
+                         
+                           </span>
+                       </div>
+                        <div class="songitem"    style="background: linear-gradient(white, rgb(114, 123, 3)) ;">
+                        <img src=image/4.png alt="agar tum sath ho">
+                           <span class="name">Ashka Na Ho Naina...</span>
+                           <span class="songlistplay">
+                               <span class="songTime">3:45</span>
+                               <i class="far fa-play-circle songitemplay" id="4"></i>
+                         
+                           </span>
+                       </div>
+                        <div class="songitem"    style="background: linear-gradient(white, rgb(414, 123, 3)) ;">
+                        <img src=image/5.png alt="agar tum sath ho">
+                           <span class="name">Shayad...</span>
+                           <span class="songlistplay">
+                               <span class="songTime">4:10</span>
+                               <i class="far fa-play-circle songitemplay" id="5"></i>
+                         
+                           </span>
+                       </div>
+                        <div class="songitem"    style="background: linear-gradient(white, rgb(24, 123, 53)) ;">
+                        <img src=image/6.png alt="agar tum sath ho">
+                           <span class="name">Nacho Nacho...</span>
+                           <span class="songlistplay">
+                               <span class="songTime">4:35</span>
+                               <i class="far fa-play-circle songitemplay" id="6"></i>
+                         
+                           </span>
+                       </div>
+                        <div class="songitem"    style="background: linear-gradient(#f5f5, rgb(254, 123, 13))  ;">
+                        <img src=image/7.png alt="agar tum sath ho">
+                           <span class="name">Zalima...</span>
+                           <span class="songlistplay">
+                               <span class="songTime">3:55</span>
+                               <i class="far fa-play-circle songitemplay" id="7"></i>
+                         
+                           </span>
+                       </div>
+                        <div class="songitem"    style="background: linear-gradient(white, rgb(241, 123, 43))  ;">
+                        <img src=image/8.png alt="agar tum sath ho">
+                           <span class="name">Tera Yaar Hu Main...</span>
+                           <span class="songlistplay">
+                               <span class="songTime">3:20</span>
+                               <i class="far fa-play-circle songitemplay" id="8"></i>
+                         
+                           </span>
+                       </div>
+                        <div class="songitem"    style="background: linear-gradient(white, rgb(24, 123, 3)) ;">
+                        <img src=image/9.png alt="agar tum sath ho">
+                           <span class="name">Hain Apna Dil To Awara...</span>
+                           <span class="songlistplay">
+                               <span class="songTime">3:50</span>
+                               <i class="far fa-play-circle songitemplay" id="9"></i>
+                         
+                           </span>
+                       </div>
+                        <div class="songitem"    style="background: linear-gradient(white, rgb(214, 13, 3)) ;">
+                        <img src=image/10.png alt="agar tum sath ho">
+                           <span class="name">Mere Liye Tum Kafi Ho...</span>
+                           <span class="songlistplay">
+                               <span class="songTime">4:10</span>
+                               <i class="far fa-play-circle songitemplay" id="10"></i>
+                         
+                           </span>
+                       </div>
                 </div>
                 <button class="cpBtn"><a href="#createPly">CREATE PLAYLIST</a></button>
 
@@ -237,8 +327,8 @@
 
         <!-- create-playlist section start -->
         <section class="createPly" id="createPly">
-            <h1>Create New Playlist</h1>
             <div class="form" id="form">
+            <h1>Create New Playlist</h1>
                 <label for="playlistName">Give your playlist a name : </label>
                 <input type="text" class="playlistName" id="playlistName"
                 placeholder="Enter name of playlist ">
