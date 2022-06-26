@@ -35,9 +35,9 @@ const fetchSongs = async () => {
            <p class="followersNum">${playlist.users} Followers</p>
        </div>`
     })
-
-    const playlistContainer = document.getElementById('cardbody');
-    playlistContainer.innerHTML = playlists
+    // const playlistContainer = document.getElementById('cardbody');
+    // playlistContainer.innerHTML = playlists
+    document.getElementById('cardbody').innerHTML= playlists
 
 
     // fetch the songs
