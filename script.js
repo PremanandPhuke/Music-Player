@@ -36,16 +36,17 @@ const fetchSongs = async () => {
        </div>`
     })
 
-    const playlistContainer = document.getElementById('cardbody');
-    playlistContainer.innerHTML = playlists
-
+    // const playlistContainer = document.getElementById('cardbody');
+    // playlistContainer.innerHTML = playlists
+    document.getElementById('cardbody').innerHTML= playlists
 
     // fetch the songs
 
     const res = await fetch('./songApi/songs.json')
     const fetchedSongs = await res.json()
     allSongsG = fetchedSongs
-    console.log(allSongsG)
+ 
+console.log(allSongsG);
     let list = "";
     fetchedSongs.map((song, index) => {
         list += `
@@ -54,15 +55,15 @@ const fetchSongs = async () => {
             <span class="name">${song.SongName}</span>
             <span class="songlistplay">
                 <span class="songTime">${song.time}</span>
-                <i class="far fa-play-circle songitemplay" onclick="makeAllplays()"></i>
+                <i class="far fa-play-circle songitemplay" id="${index +1}"></i>
           
             </span>
         </div>`
     })
     // onClick="makeAllplays(${index})"
-
+console.log(list)
     const div = document.getElementById("options");
-    div.innerHTML = list
+    // div.innerHTML = list
 
     const likedSongs = await fetch('./songApi/likedSongs.json')
     const lSongs = await likedSongs.json();
@@ -70,6 +71,90 @@ const fetchSongs = async () => {
 
 }
 fetchSongs();
+
+
+const songs = [
+    {
+        "id":1,
+        "SongName": "Agar Tum Sath Ho...",
+        "filepath": "songs/1.mp3",
+        "coverpath": "image/1.png",
+        "background": "#fff",
+        "time": "3:59"
+    },
+    {
+        "id":2,
+        "SongName": "Ye Raate Ye Mousam...",
+        "filepath": "songs/2.mp3",
+        "coverpath": "image/2.png",
+        "background": " linear-gradient(white, rgb(230, 123, 3))",
+        "time": "4:50"
+    },
+    {
+        "id":3,
+        "SongName": "Lagja Gale...",
+        "filepath": "songs/3.mp3",
+        "coverpath": "image/3.png",
+        "background": " linear-gradient(rgb(237, 210, 100), rgb(154, 123, 3))",
+        "time": "6:32"
+    },
+    {
+        "id":4,
+        "SongName": "Ashka Na Ho Naina...",
+        "filepath": "songs/4.mp3",
+        "coverpath": "image/4.png",
+        "background": " linear-gradient(white, rgb(114, 123, 3))",
+        "time": "3:45"
+    },
+    {
+        id:5,
+        "SongName": "Shayad...",
+        "filepath": "songs/5.mp3",
+        "coverpath": "image/5.png",
+        "background": " linear-gradient(white, rgb(414, 123, 3))",
+        "time": "4:10"
+    },
+    {
+        "id":6,
+        "SongName": "Nacho Nacho...",
+        "filepath": "songs/6.mp3",
+        "coverpath": "image/6.png",
+        "background": " linear-gradient(white, rgb(24, 123, 53))",
+        "time": "4:35"
+    },
+    {
+        "id":7,
+        "SongName": "Zalima...",
+        "filepath": "songs/7.mp3",
+        "coverpath": "image/7.png",
+        "background": " linear-gradient(#f5f5, rgb(254, 123, 13)) ",
+        "time": "3:55"
+    },
+    {
+        "id":8,
+        "SongName": "Tera Yaar Hu Main...",
+        "filepath": "songs/8.mp3",
+        "coverpath": "image/8.png",
+        "background": " linear-gradient(white, rgb(241, 123, 43)) ",
+        "time": "3:20"
+    },
+    {
+        "id":9,
+        "SongName": "Hain Apna Dil To Awara...",
+        "filepath": "songs/9.mp3",
+        "coverpath": "image/9.png",
+        "background": " linear-gradient(white, rgb(24, 123, 3))",
+        "time": "3:50"
+    },
+    {
+        "id":10,
+        "SongName": "Mere Liye Tum Kafi Ho...",
+        "filepath": "songs/10.mp3",
+        "coverpath": "image/10.png",
+        "background": " linear-gradient(white, rgb(214, 13, 3))",
+        "time": "4:10"
+    }
+]
 
 // songitem.forEach((element, i) => {
 //     element.getElementsByTagName("img")[0].src = songs[i].coverpath;
@@ -138,7 +223,7 @@ const likeBtn = () => {
 //         audioElement.src = `songs/${songindex + 1}.mp3`;
 
 
-                
+
 //             } else {
 //                 audioElement.pause();
 //                 masterplay.classList.add('fa-play-circle')
@@ -150,6 +235,7 @@ const likeBtn = () => {
 //         })
 //     })
 // }
+
 //  condition for play pause button
 
 masterplay.addEventListener('click', () => {
@@ -168,48 +254,46 @@ masterplay.addEventListener('click', () => {
     }
 
 })
-const makeAllplays = () => {
-Array.from(document.getElementsByClassName("songitemplay")).forEach((element) => {
-    element.addEventListener('click', (e) => {
-        console.log(e);
-        if (e.target.classList.contains("fa-pause-circle")) {
-            e.target.classList.add("fa-play-circle")
-            e.target.classList.remove("fa-pause-circle")
-            console.log("ok");
-        }
-        else {
-            e.target.classList.remove("fa-play-circle");
-            e.target.classList.add("fa-pause-circle")
-            console.log("ok");
-        }
-        makeAllplays();
-        songindex = parseInt(e.target.id);
-        audioElement.src = `songs/${songindex + 1}.mp3`;
-        audioElement.currentTime = 0;
-        audioElement.play();
-        masterplay.classList.remove("fa-play-circle")
-        masterplay.classList.add("fa-pause-circle")
-        mainimg.src = `image/${songindex + 1}.png`;
-        mainsong.innerHTML = songs[songindex + 1].SongName
-    
 
-        if (audioElement.paused || audioElement.currentTime <= 0) {
-            audioElement.play();
-            masterplay.classList.remove('fa-play-circle')
-            masterplay.classList.add('fa-pause-circle')
-            musicOn = true;
-            rotateImg(musicOn);
-        } else {
-            audioElement.pause();
-            masterplay.classList.add('fa-play-circle')
-            masterplay.classList.remove('fa-pause-circle')
-            musicOn = false;
-            rotateImg(musicOn);
-        }
+// play songs from different playlist
+
+const makeAllplays = () => {
+    Array.from(document.getElementsByClassName("songitemplay")).forEach((element) => {
+        element.classList.add("fa-play-circle")
+        element.classList.remove("fa-pause-circle")
 
     })
-})
 }
+let index = 0;
+Array.from(document.getElementsByClassName('songitemplay')).forEach((element)=>{
+element.addEventListener('click',(e)=>{
+    index = e.target.id;
+    console.log(e.target);
+    makeAllplays();
+    e.target.classList.remove('fa-play-circle');
+    e.target.classList.add('fa-pause-circle')
+    audioElement.src =`songs/${index}.mp3`;
+    mainimg.src = `image/${index}.png`;
+    audioElement.play()
+    let mainSong= songs.filter((ele)=>{
+        console.log(ele);
+        return ele.id == index;
+    })
+    
+    mainSong.forEach(ele =>{
+        mainsong.innerHTML = ele.SongName;
+    })
+    masterplay.classList.remove('fa-play-circle');
+    masterplay.classList.add('fa-pause-circle');
+
+audioElement.addEventListener('ended',()=>{
+            masterplay.classList.add('fa-play-circle');
+            masterplay.classList.remove('fa-pause-circle');
+})
+
+})
+
+})
 
 //  img rotate function
 
@@ -247,7 +331,7 @@ myprogressbar.addEventListener('change', () => {
 
 document.getElementById('next').addEventListener('click', () => {
     if (songindex >= 9) {
-        songindex = 0
+        songindex = 1
     } else {
         songindex += 1;
     }
@@ -257,7 +341,7 @@ document.getElementById('next').addEventListener('click', () => {
     masterplay.classList.remove("fa-play-circle")
     masterplay.classList.add("fa-pause-circle")
     mainimg.src = `image/${songindex + 1}.png`;
-    mainsong.innerHTML = songs[songindex + 1].SongName
+    mainsong.innerHTML = songs[songindex].SongName
 
     if (audioElement.paused || audioElement.currentTime <= 0) {
         audioElement.play();
